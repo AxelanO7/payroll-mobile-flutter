@@ -14,11 +14,11 @@ class CameraSection extends StatelessWidget {
             elevation: 0,
             backgroundColor: ColorStyle.whiteColor,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.hashMicroGreyColor),
+              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.customGreyColor),
               onPressed: controller.onGoBack,
             ),
             title: Text(
-              'Camera Attendance',
+              'Kamera Absensi',
               style: TypographyStyle.body1SemiBold,
             ),
             centerTitle: true,
@@ -40,8 +40,8 @@ class CameraSection extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
-                              'Please take a picture of yourself to confirm your attendance',
-                              style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle.hashMicroGreyColor),
+                              'Silahkan ambil foto absensi Anda',
+                              style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle.customGreyColor),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -52,7 +52,7 @@ class CameraSection extends StatelessWidget {
                               height: Get.width - 32,
                               width: Get.width - 32,
                               decoration: BoxDecoration(
-                                color: ColorStyle.hashMicroGreyColor,
+                                color: ColorStyle.customGreyColor,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: controller.imageFile == null
@@ -76,10 +76,10 @@ class CameraSection extends StatelessWidget {
                           CustomButton(
                             width: Get.width - 32,
                             height: 48,
-                            color: ColorStyle.hashMicroGreyColor,
+                            color: ColorStyle.customGreyColor,
                             radius: 12,
                             onPressed: controller.savePicturePresence,
-                            child: Text('Save Picture', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
+                            child: Text('Simpan Foto', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
                           ),
                           const SizedBox(height: 12),
                         ],

@@ -26,20 +26,24 @@ class LoginController extends BaseController {
     Get.back();
   }
 
-  onGetStarted() {
-    Get.toNamed(AppRoutes.attendance);
+  handleLogin() {
+    if (usernameController.text.isEmpty || passwordController.text.isEmpty) {
+      Get.snackbar('Gagal', 'Username atau password tidak boleh kosong');
+      return;
+    }
+
+    // if (usernameController.text != 'admin' || passwordController.text != 'admin') {
+    //   Get.snackbar('Gagal', 'Username atau password salah');
+    //   return;
+    // }
+
+    SettingsUtils.set('name_user', usernameController.text);
+    Get.snackbar('Berhasil', 'Login berhasil');
+    Future.delayed(const Duration(seconds: 1), onGetStarted);
+    onGetStarted();
   }
 
-  saveName() {
-    if (usernameController.text.isNotEmpty) {
-      SettingsUtils.set('name_user', usernameController.text);
-      Get.toNamed(AppRoutes.welcome);
-    } else {
-      Get.snackbar(
-        'Error',
-        'Please enter your name',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
+  onGetStarted() {
+    Get.toNamed(AppRoutes.mainPage);
   }
 }

@@ -1,20 +1,20 @@
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:google_maps_flutter/google_maps_flutter.dart' as GMaps;
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:location/location.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/attendance/sections/camera_section.dart';
 import 'package:absent_payroll/src/views/attendance/sections/confirmation_section.dart';
 import 'package:absent_payroll/src/views/attendance/sections/location_section.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart' as GMaps;
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:location/location.dart';
 
 class AttendanceController extends BaseController {
   bool canPop = true;
   PageController pageController = PageController();
 
-  GMaps.LatLng gMapsMasterPosition = const GMaps.LatLng(-6.170496817410874, 106.81335632336429);
+  GMaps.LatLng gMapsMasterPosition = const GMaps.LatLng(-8.622508067177174, 115.24098192668382);
   GMaps.LatLng? gMapsCurrentPosition;
 
   Set<GMaps.Polyline> polylLines = HashSet<GMaps.Polyline>();
@@ -27,6 +27,12 @@ class AttendanceController extends BaseController {
 
   String nameUser = "";
   late DateTime attendanceTime;
+
+  String? selectedTypeAbsence;
+  List<String> typeAbsenceList = [
+    "Check In",
+    "Check Out",
+  ];
 
   @override
   onInit() {
@@ -75,16 +81,16 @@ class AttendanceController extends BaseController {
 
   saveLocationPresence() {
     // current position must 500 meters from the master location
-    if (gMapsCurrentPosition!.latitude >= gMapsMasterPosition.latitude - 0.0045 &&
-        gMapsCurrentPosition!.latitude <= gMapsMasterPosition.latitude + 0.0045 &&
-        gMapsCurrentPosition!.longitude >= gMapsMasterPosition.longitude - 0.0045 &&
-        gMapsCurrentPosition!.longitude <= gMapsMasterPosition.longitude + 0.0045) {
-      Get.snackbar('Success', 'Location is correct');
-      attendanceTime = DateTime.now();
-      pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-    } else {
-      Get.snackbar('Error', 'Location is incorrect');
-    }
+    // if (gMapsCurrentPosition!.latitude >= gMapsMasterPosition.latitude - 0.0045 &&
+    //     gMapsCurrentPosition!.latitude <= gMapsMasterPosition.latitude + 0.0045 &&
+    //     gMapsCurrentPosition!.longitude >= gMapsMasterPosition.longitude - 0.0045 &&
+    //     gMapsCurrentPosition!.longitude <= gMapsMasterPosition.longitude + 0.0045) {
+    Get.snackbar('Berhasil', 'Lokasi berhasil disimpan');
+    attendanceTime = DateTime.now();
+    pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+    // } else {
+    //   Get.snackbar('Gagal', 'Lokasi tidak sesuai');
+    // }
   }
 
   takePicturePresence() async {
@@ -131,15 +137,15 @@ class AttendanceController extends BaseController {
 
   savePicturePresence() async {
     if (imageFile == null) {
-      Get.snackbar('Error', 'Please take a picture first');
+      Get.snackbar("Gambar belum diambil", "Silahkan ambil gambar terlebih dahulu");
       return;
     }
-    Get.snackbar('Success', 'Picture has been saved');
+    Get.snackbar('Berhasil', 'Foto berhasil disimpan');
     pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 
   confirmAttendance() {
-    Get.snackbar('Success', 'Attendance has been confirmed');
+    Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
     Get.offAllNamed(AppRoutes.mainPage);
   }
 }

@@ -3,7 +3,6 @@ import 'package:absent_payroll/src/views/attendance/attendance_view.dart';
 import 'package:absent_payroll/src/views/login//login_view.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_view.dart';
 import 'package:absent_payroll/src/views/startup/startup_view.dart';
-import 'package:absent_payroll/src/views/welcome/welcome_view.dart';
 
 part 'app_routes.dart';
 
@@ -14,19 +13,15 @@ abstract class AppPages {
       page: () => const StartupView(),
     ),
     GetPage(
-      name: AppRoutes.welcome,
-      page: () => const WelcomeView(),
-    ),
-    GetPage(
       name: AppRoutes.mainPage,
       page: () => const MainPageView(),
     ),
     GetPage(
-      name: AppRoutes.attendance,
+      name: AppRoutes.attendancePage,
       page: () => const AttendanceView(),
     ),
     GetPage(
-      name: AppRoutes.login,
+      name: AppRoutes.loginPage,
       page: () => const LoginView(),
     ),
   ];

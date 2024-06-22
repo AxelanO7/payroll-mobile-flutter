@@ -1,6 +1,6 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:absent_payroll/src/views/main_page/about/about_view.dart';
+import 'package:absent_payroll/src/views/main_page/time_off/time_off_view.dart';
 import 'package:absent_payroll/src/views/main_page/history/mobile_page.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_controller.dart';
 
@@ -23,7 +23,7 @@ class MainPageMobilePage extends StatelessWidget {
             children: [
               const HistoryMobilePage(),
               HomePageMobilePage(rootController: controller),
-              const AboutView(),
+              const TimeOffView(),
             ],
           ),
           floatingActionButtonLocation:
@@ -37,7 +37,7 @@ class MainPageMobilePage extends StatelessWidget {
                 onPressed: controller.tapHome,
                 backgroundColor: MainPageController.indexTab == 1
                     ? Colors.red //ColorStyle.secondaryColor
-                    : ColorStyle.hashMicroGreyColor, //ColorStyle.primaryDarkColor,
+                    : ColorStyle.customGreyColor, //ColorStyle.primaryDarkColor,
                 tooltip: 'Home',
                 elevation: 0,
                 child: Padding(
@@ -53,19 +53,19 @@ class MainPageMobilePage extends StatelessWidget {
             child: FABBottomAppBar(
               height: 60,
               onFabTapped: false,
-              color: ColorStyle.hashMicroGreyColor,
+              color: ColorStyle.customGreyColor,
               currentIndex: MainPageController.indexTab > 1
                   ? MainPageController.indexTab - 1
                   : MainPageController.indexTab,
               selectedColor: MainPageController.indexTab == 1
-                  ? ColorStyle.hashMicroGreyColor
+                  ? ColorStyle.customGreyColor
                   : Colors.red, //ColorStyle.secondaryColor,
               onTabSelected: controller.tapTab,
               items: [
                 FABBottomAppBarItem(
-                    iconData: 'assets/images/global/list.svg', text: 'History'),
+                    iconData: 'assets/images/global/list.svg', text: 'Riwayat'),
                 FABBottomAppBarItem(
-                    iconData: 'assets/images/global/profile.svg', text: 'About'),
+                    iconData: 'assets/images/global/profile.svg', text: 'Cuti'),
               ],
             ),
           ),

@@ -13,12 +13,12 @@ class ConfirmationSection extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.hashMicroGreyColor),
+              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.customGreyColor),
               onPressed: controller.onGoBack,
             ),
             backgroundColor: ColorStyle.whiteColor,
             title: Text(
-              'Confirmation Attendance',
+              'Konfirmasi Absensi',
               style: TypographyStyle.body1SemiBold,
             ),
             centerTitle: true,
@@ -50,7 +50,7 @@ class ConfirmationSection extends StatelessWidget {
                                 border: Border.all(color: ColorStyle.grayBorderColor, width: 2),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: ColorStyle.hashMicroGreyColor.withOpacity(0.1),
+                                    color: ColorStyle.customGreyColor.withOpacity(0.1),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -60,34 +60,59 @@ class ConfirmationSection extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Name Submitter : ${controller.nameUser}',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    'Name : ${controller.nameUser}',
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
-                                    'Date Attendance  : ${controller.attendanceTime.toLocal(
-                                      ).toString().substring(0, 10)}',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    'Date Attendance  : ${controller.attendanceTime.toLocal().toString().substring(0, 10)}',
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
                                     'Time Attendance  : ${controller.attendanceTime.toLocal().toString().substring(11, 16)}',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
                                     'Latitude Attendance  : ${controller.locationData!.latitude}',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
                                     'Longitude Attendance  : ${controller.locationData!.longitude}',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
+                                  ),
+                                  SizedBox(height: 12),
+                                  DropdownButtonFormField<String>(
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                        borderSide: BorderSide(
+                                          color: ColorStyle.grayBorderColor,
+                                        ),
+                                      ),
+                                    ),
+                                    value: controller.selectedTypeAbsence,
+                                    onChanged: (String? newValue) {
+                                      controller.selectedTypeAbsence = newValue!;
+                                      controller.update();
+                                    },
+                                    items: controller.typeAbsenceList.map<DropdownMenuItem<String>>((String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(
+                                          value,
+                                          style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle.customGreyColor),
+                                        ),
+                                      );
+                                    }).toList(),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
                                     'Picture Attendance  :',
-                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.hashMicroGreyColor),
+                                    style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
                                   const SizedBox(height: 8),
                                   Image.file(
@@ -103,10 +128,10 @@ class ConfirmationSection extends StatelessWidget {
                             CustomButton(
                               width: Get.width - 32,
                               height: 48,
-                              color: ColorStyle.hashMicroGreyColor,
+                              color: ColorStyle.customGreyColor,
                               radius: 12,
                               onPressed: controller.confirmAttendance,
-                              child: Text('Confirm', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
+                              child: Text('Konfirmasi', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
                             ),
                             const SizedBox(height: 12),
                           ],

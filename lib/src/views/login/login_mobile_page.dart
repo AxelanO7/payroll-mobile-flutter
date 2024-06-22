@@ -20,18 +20,14 @@ class LoginMobilePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.asset('assets/images/illust_mobile_login.svg', width: Get.width / 2.5, height: Get.width / 2.5),
-                    Text(
-                      'What\'s your name?',
-                      style: TypographyStyle.heading4Bold,
-                    ),
+                    Image.asset('assets/images/global/logo.png', width: Get.width / 2.5, height: Get.width / 2.5),
                     const SizedBox(height: 32),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 36),
                       child: TextField(
                         controller: controller.usernameController,
                         decoration: InputDecoration(
-                          hintText: 'Enter username',
+                          hintText: 'Masukkan username',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -39,13 +35,27 @@ class LoginMobilePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 32),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 36),
+                      child: TextField(
+                        controller: controller.passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: 'Masukkan password',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height:  32),
                     CustomButton(
                       width: Get.width - 72,
                       height: 44,
-                      color: ColorStyle.hashMicroGreyColor,
-                      onPressed: controller.saveName,
+                      color: ColorStyle.customGreyColor,
+                      onPressed: controller.handleLogin,
                       child: Text(
-                        'Save',
+                        'Login',
                         style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor),
                       ),
                     ),

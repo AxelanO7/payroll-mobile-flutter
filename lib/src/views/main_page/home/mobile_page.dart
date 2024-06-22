@@ -90,7 +90,7 @@ class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticK
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: InkWell(
-                                    onTap: controller.goToAbout,
+                                    // onTap: controller.goToAbout,
                                     child: Container(
                                       height: 64,
                                       decoration: BoxDecoration(
@@ -101,7 +101,7 @@ class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticK
                                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                                           Image.asset(
-                                            "assets/images/global/logo_think_foward_black.png",
+                                            "assets/images/global/logo.png",
                                             height: 40,
                                           ),
                                           const SizedBox(
@@ -109,7 +109,7 @@ class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticK
                                           ),
                                           Expanded(
                                             child: Text(
-                                              "Tentang HashMicro",
+                                              "SMP Widya Sakti",
                                               style: TypographyStyle.body1Bold.copyWith(color: ColorStyle().grayscaleRange[900]),
                                             ),
                                           ),
@@ -201,9 +201,9 @@ class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticK
                                                                 child: Column(
                                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                                   children: [
-                                                                    Text("Attendance",
+                                                                    Text("Absensi",
                                                                         style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[900])),
-                                                                    Text("Do Attendance",
+                                                                    Text("Absen sekarang",
                                                                         style: TypographyStyle.body3Medium.copyWith(color: ColorStyle().grayscaleRange[500])),
                                                                   ],
                                                                 ),
@@ -272,9 +272,9 @@ class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticK
                                                                 child: Column(
                                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                                   children: [
-                                                                    Text("Reset",
+                                                                    Text("Logout",
                                                                         style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[900])),
-                                                                    Text("Change Account",
+                                                                    Text("Keluar dari akun",
                                                                         style: TypographyStyle.body3Medium.copyWith(color: ColorStyle().grayscaleRange[500])),
                                                                   ],
                                                                 ),

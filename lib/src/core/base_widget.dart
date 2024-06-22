@@ -59,27 +59,27 @@ class BaseWidget<X extends GetxController> extends StatelessWidget {
                 body: Stack(
                   children: [
                     isDesktop ? _body(controller, desktop ?? mobile) ?? Container() : _body(controller, mobile) ?? Container(),
-                    Positioned(
-                      right: 0,
-                      child: GestureDetector(
-                        onTap: () => showDebugConsole(context),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: ColorStyle().grayscaleRange[200]?.withOpacity(.8),
-                          ),
-                          margin: EdgeInsets.symmetric(horizontal: 8, vertical: appBar == null ? MediaQuery.of(context).viewPadding.top : 0),
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4.5),
-                          child: Text(
-                            "UNDER DEVELOPMENT",
-                            style: TypographyStyle.body4Medium.copyWith(
-                              fontSize: 11,
-                              color: ColorStyle.blackColor.withOpacity(.8),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Positioned(
+                    //   right: 0,
+                    //   child: GestureDetector(
+                    //     onTap: () => showDebugConsole(context),
+                    //     child: Container(
+                    //       decoration: BoxDecoration(
+                    //         borderRadius: BorderRadius.circular(5),
+                    //         color: ColorStyle().grayscaleRange[200]?.withOpacity(.8),
+                    //       ),
+                    //       margin: EdgeInsets.symmetric(horizontal: 8, vertical: appBar == null ? MediaQuery.of(context).viewPadding.top : 0),
+                    //       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4.5),
+                    //       child: Text(
+                    //         "UNDER DEVELOPMENT",
+                    //         style: TypographyStyle.body4Medium.copyWith(
+                    //           fontSize: 11,
+                    //           color: ColorStyle.blackColor.withOpacity(.8),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 backgroundColor: backgroundColor ?? Colors.white,

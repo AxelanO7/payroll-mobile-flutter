@@ -1,7 +1,7 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class MainPageController extends BaseController {
-  static int indexTab = 0;
+  static int indexTab = 1;
   static bool onFab = false;
   static PageController pageController = PageController(initialPage: 1);
 
@@ -14,7 +14,6 @@ class MainPageController extends BaseController {
 
   @override
   onReady() async {
-    update();
     super.onReady();
   }
 

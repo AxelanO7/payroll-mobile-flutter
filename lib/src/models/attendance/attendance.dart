@@ -3,9 +3,9 @@ import 'dart:io';
 class Attendance {
   final String name;
   final DateTime date;
-  final String latitude;
-  final String longitude;
-  final String image;
+  final String? checkin;
+  final String? checkout;
+  final String description;
 
-  Attendance({required this.name, required this.date, required this.latitude, required this.longitude, required this.image});
+  Attendance({required this.name, required this.date, required this.checkin, required this.checkout, required this.description});
 }

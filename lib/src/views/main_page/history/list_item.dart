@@ -27,12 +27,6 @@ class _ListItemState extends State<ListItem> {
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
-                    '${widget.item?.date}',
-                    style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
-                  ),
-                ),
-                Expanded(
                   child: Container(
                     height: 50,
                     child: Marquee(
@@ -40,7 +34,7 @@ class _ListItemState extends State<ListItem> {
                       decelerationDuration: const Duration(milliseconds: 500),
                       accelerationCurve: Curves.easeInOut,
                       decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.latitude}',
+                      text: '${widget.item?.date}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                     ),
                   ),
@@ -48,12 +42,40 @@ class _ListItemState extends State<ListItem> {
                 Expanded(
                   child: Container(
                     height: 50,
+                    child: (widget.item?.checkin == null || widget.item?.checkin == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.checkin}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 50,
+                    child: (widget.item?.checkout == null || widget.item?.checkout == "") ? Icon(Icons.close) : Icon(Icons.check),
+                  // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.checkout}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 50,
                     child: Marquee(
                       blankSpace: 20,
                       decelerationDuration: const Duration(milliseconds: 500),
                       accelerationCurve: Curves.easeInOut,
                       decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.longitude}',
+                      text: '${widget.item?.description}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                     ),
                   ),

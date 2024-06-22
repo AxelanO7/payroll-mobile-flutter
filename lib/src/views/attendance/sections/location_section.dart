@@ -14,12 +14,12 @@ class LocationSection extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.hashMicroGreyColor),
+              icon: Icon(Icons.arrow_back_ios, color: ColorStyle.customGreyColor),
               onPressed: controller.onGoBack,
             ),
             backgroundColor: ColorStyle.whiteColor,
             title: Text(
-              'Location Attendance',
+              'Lokasi Absensi',
               style: TypographyStyle.body1SemiBold,
             ),
             centerTitle: true,
@@ -56,10 +56,10 @@ class LocationSection extends StatelessWidget {
                           CustomButton(
                             width: Get.width - 32,
                             height: 48,
-                            color: ColorStyle.hashMicroGreyColor,
+                            color: ColorStyle.customGreyColor,
                             radius: 12,
                             onPressed: controller.saveLocationPresence,
-                            child: Text('Save Location', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
+                            child: Text('Simpan Lokasi', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
                           ),
                           const SizedBox(height: 12),
                         ],

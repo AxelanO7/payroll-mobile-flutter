@@ -36,7 +36,7 @@ class _HistoryMobilePageState extends State<HistoryMobilePage> {
               : Stack(
                   children: [
                     EasyRefresh(
-                      header: MaterialHeader(valueColor: AlwaysStoppedAnimation<Color>(ColorStyle.hashMicroGreyColor)),
+                      header: MaterialHeader(valueColor: AlwaysStoppedAnimation<Color>(ColorStyle.customGreyColor)),
                       controller: controller.refreshController,
                       // onRefresh: controller.onRefresh,
                       child: SingleChildScrollView(
@@ -78,7 +78,7 @@ class _HistoryMobilePageState extends State<HistoryMobilePage> {
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "List Status",
+              "Riwayat Absensi",
               style: TypographyStyle.body2SemiBold,
               textAlign: TextAlign.center,
             ),
@@ -91,24 +91,68 @@ class _HistoryMobilePageState extends State<HistoryMobilePage> {
             color: ColorStyle().grayscaleRange[200],
           ),
         ),
+        // make month with check box
+        SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: DropdownButtonFormField<String>(
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                  color: ColorStyle().grayscaleRange[200]!,
+                ),
+              ),
+            ),
+            value: controller.selectedMonth,
+            onChanged: (String? newValue) {
+              controller.selectedMonth = newValue!;
+              controller.update();
+            },
+            items: controller.monthList.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Waktu',
-                style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+              Expanded(
+                child: Text(
+                  'Tanggal',
+                  textAlign: TextAlign.center,
+                  style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
               ),
-              Text(
-                'Latitude',
-                textAlign: TextAlign.center,
-                style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+              Expanded(
+                child: Text(
+                  'Check In',
+                  textAlign: TextAlign.center,
+                  style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
               ),
-              Text(
-                'Longitude',
-                textAlign: TextAlign.center,
-                style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+              Expanded(
+                child: Text(
+                  'Check Out',
+                  textAlign: TextAlign.center,
+                  style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  'Keterangan',
+                  textAlign: TextAlign.center,
+                  style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
               ),
             ],
           ),

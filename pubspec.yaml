@@ -28,6 +28,7 @@ dependencies:
   flutter_easyrefresh: ^2.2.2
   flutter_launcher_icons: ^0.13.1
   marquee: ^2.2.3
+  file_picker: ^8.0.5
 
 dev_dependencies:
   flutter_test:
@@ -41,8 +42,13 @@ flutter_native_splash:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "resources/logo_think_foward_black.png"
-  image_path_android: "resources/logo_think_foward_black.png"
+  image_path: "resources/logo.png"
+  image_path_android: "resources/logo.png"
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/images/global/

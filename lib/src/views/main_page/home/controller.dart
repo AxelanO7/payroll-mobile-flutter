@@ -1,6 +1,6 @@
-import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_controller.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class HomePageController extends BaseController {
   var mainScrollController = ScrollController();
@@ -32,18 +32,12 @@ class HomePageController extends BaseController {
     super.onClose();
   }
 
-  onRefresh() async {}
-
-  goToAbout() {
-    rootController.onGoProfile();
-  }
-
   resetAccount() {
     SettingsUtils.remove("name_user");
-    Get.offAllNamed(AppRoutes.login);
+    Get.offAllNamed(AppRoutes.loginPage);
   }
 
   doAttendance() {
-    Get.toNamed(AppRoutes.attendance);
+    Get.toNamed(AppRoutes.attendancePage);
   }
 }

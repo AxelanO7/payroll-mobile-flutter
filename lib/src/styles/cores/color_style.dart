@@ -10,7 +10,7 @@ class ColorStyle {
   static Color get blackColor => HexColor('1A1A1A');
 
   // hash micro
-  static Color get hashMicroGreyColor => HexColor('#4f4f4f');
+  static Color get customGreyColor => HexColor('#4f4f4f');
 
   static Color get grayBorderColor => HexColor('DFE5EF');
 

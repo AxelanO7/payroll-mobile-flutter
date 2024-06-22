@@ -28,7 +28,7 @@ class StartupView extends StatelessWidget {
               child: Center(
                 child: SizedBox(
                   width: Get.width * 0.40,
-                  child: Image.asset('assets/images/global/logo_think_foward_black.png'),
+                  child: Image.asset('assets/images/global/logo.png'),
                 ),
               ),
             ),
