@@ -3,7 +3,7 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class HistoryController extends BaseController {
   var mainScrollController = ScrollController();
-  List<Attendance?> dosenList = [];
+  List<Presence?> dosenList = [];
 
   EasyRefreshController refreshController = EasyRefreshController();
 

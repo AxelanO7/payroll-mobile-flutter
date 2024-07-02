@@ -5,7 +5,7 @@ import 'controller.dart';
 
 class ListItem extends StatefulWidget {
   final HistoryController controller;
-  final Attendance? item;
+  final Presence? item;
   final int index;
 
   const ListItem(this.controller, this.item, this.index, {super.key});
