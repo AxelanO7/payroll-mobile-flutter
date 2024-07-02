@@ -1,0 +1,18 @@
+{
+  "uuid": "cly2aaiys0001vr04u7nwlh4l",
+  "id": 1,
+  "fullname": "Puji",
+  "position": "Guru",
+  "photos": "http://localhost:8100/storage/teachers/avatars/teacher-1.jpg",
+  "email": "puji@gmail.com",
+  "address": "",
+  "joined_at": "",
+  "last_education": "S1",
+  "religion": "islam",
+  "type": "honorer",
+  "place_of_birth": "",
+  "date_of_birth": "",
+  "gender": "P",
+  "email": "puji@gmail.com",
+  "account_status": "active"
+}

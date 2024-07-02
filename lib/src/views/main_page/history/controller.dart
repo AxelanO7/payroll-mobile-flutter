@@ -54,43 +54,6 @@ class HistoryController extends BaseController {
   }
 
   getDosenListData() async {
-    dosenList = [
-      Attendance(
-        name: 'Dr. H. M. Fauzi, M.Kom',
-        date: DateTime.now(),
-        description: "Sakit demam",
-        checkin: '-6.914744',
-        checkout: '107.609810',
-      ),
-      Attendance(
-        name: 'Dr. H. M. Fauzi, M.Kom',
-        date: DateTime.now(),
-        description: "Izin nikah",
-        checkin: null,
-        checkout: '107.609810',
-      ),
-      Attendance(
-        name: 'Dr. H. M. Fauzi, M.Kom',
-        date: DateTime.now(),
-        description: 'Izin melahirkan',
-        checkin: '-6.914744',
-        checkout: null,
-      ),
-      Attendance(
-        name: 'Dr. H. M. Fauzi, M.Kom',
-        date: DateTime.now(),
-        description: "Sakit tipes",
-        checkin: "",
-        checkout: '107.609810',
-      ),
-      Attendance(
-        name: 'Dr. H. M. Fauzi, M.Kom',
-        date: DateTime.now(),
-        description: "Izin keluarga",
-        checkin: '-6.914744',
-        checkout: '107.609810',
-      ),
-    ];
     isLoadingStatus = false;
     update();
   }

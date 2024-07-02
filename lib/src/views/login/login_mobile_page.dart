@@ -12,6 +12,7 @@ class LoginMobilePage extends StatelessWidget {
       builder: (controller) => PopScope(
         canPop: controller.canPop,
         child: Scaffold(
+          backgroundColor: ColorStyle.whiteColor,
           body: ScrollConfiguration(
             behavior: CustomDisableGlowBehavior(),
             child: SingleChildScrollView(
@@ -50,6 +51,7 @@ class LoginMobilePage extends StatelessWidget {
                     ),
                     const SizedBox(height:  32),
                     CustomButton(
+                      isLoading: controller.isLoadingLogin,
                       width: Get.width - 72,
                       height: 44,
                       color: ColorStyle.customGreyColor,

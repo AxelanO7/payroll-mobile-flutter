@@ -1,0 +1,6 @@
+{
+  "status": "success",
+  "code": 200,
+  "message": "Profile data retrieved successfully",
+  "data": "$../models/profile"
+}

@@ -1,0 +1,6 @@
+{
+  "status": "success",
+  "code": 200,
+  "message": "Login successful. Welcome back!",
+  "data": "$../models/login"
+}

@@ -4,14 +4,14 @@ import 'list_config.dart';
 
 class CoreConfig {
   //Production Mode will disable every debug thing
-  static const bool productionMode = true;
+  static const bool productionMode = false;
 
   static final bool isDesktopClient = Platform.isWindows || Platform.isLinux;
   static final bool isMacOS = !isDesktopClient && Platform.isMacOS;
 
   static const String _urlBaseAPILocal = '';
-  static const String _urlBaseAPIDebug = '';
-  static const String _urlBaseAPIProduction = '';
+  static const String _urlBaseAPIDebug = 'http://128.199.86.138/api';
+  static const String _urlBaseAPIProduction = 'http://128.199.86.138/api';
   static const String _urlBaseCDN = '';
 
   static bool getDebuggableConfig(String configName) {

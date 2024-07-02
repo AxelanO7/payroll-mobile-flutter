@@ -8,7 +8,7 @@ class ResultApi {
   late bool status;
   String? message;
   late int statusCode;
-  // Errors? errors;
-  // Map<String,List<dynamic>>? errorsMessage;
+  Errors? errors;
+  Map<String,List<dynamic>>? errorsMessage;
   ResultApi({this.message, this.status = false, this.listData, this.data, this.statusCode = 0});//, this.errors});
 }

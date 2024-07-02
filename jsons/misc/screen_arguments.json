@@ -1,0 +1,15 @@
+{
+  "id?": "String",
+  "title?": "String",
+  "description?": "String",
+  "name?" : "String",
+  "@JsonKey() dynamic": "data?",
+  "@JsonKey(name) Map<String,dynamic>?": "additional_data?",
+  "student_profile": null,
+  "state?": true,
+  "task_id?": 0,
+  "package_id?": 0,
+  "item_id?": 0,
+  "program?": "",
+  "exam_group?": ""
+}
