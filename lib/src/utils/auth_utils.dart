@@ -1,9 +1,21 @@
+import 'package:absent_payroll/src/api/index.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class AuthUtils {
   static final String _skLogin = 'is_login';
   static final String _skMobileToken = 'token';
   static final String _skFCMToken = 'fcm_token';
+
+  static Future<ResultApi> doLogin(String userIdentifier, String password) async {
+    var result = await LoginApi().request(email: userIdentifier, password: password);
+    if (result.status) {
+      var data = result.data as Login;
+      await AuthUtils.setMobileToken(data.token);
+      await setLoggedIn(true);
+      await SettingsUtils.set("teacher_id", data.teacherId);
+    }
+    return result;
+  }
 
   static Future<bool> isLoggedIn() async {
     return (await SettingsUtils.getString(_skMobileToken)) != "";

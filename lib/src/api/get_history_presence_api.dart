@@ -6,8 +6,8 @@ import 'package:absent_payroll/src/core/base_import.dart';
 class GetHistoryPresenceApi extends BaseApi {
   String url = CoreConfig.getApiUrl() + '/history-presences';
 
-  Future<ResultApi> request({required String employeeId}) async {
-    url += '/$employeeId';
+  Future<ResultApi> request({required String teacherId}) async {
+    url += '/$teacherId';
     if (CoreConfig.getDebuggableConfig("is_debug_mode")) LogUtils.log(requestPayload);
 
     try {
@@ -22,7 +22,7 @@ class GetHistoryPresenceApi extends BaseApi {
         var responseBody = json.decode(response.body);
         // var data = CheckCodeResponse.fromJson(responseBody);
         // responseData.status = true;
-        // responseData.data = data.data;
+        // responseData.listData = data.data;
         // responseData.message = data.message.first;
       }
     } catch (e) {

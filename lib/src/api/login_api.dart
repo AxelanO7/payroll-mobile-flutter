@@ -23,7 +23,7 @@ class LoginApi extends BaseApi {
       responseData.statusCode = response.statusCode;
       if (checkStatus200(response)) {
         var responseBody = json.decode(response.body);
-        var data = GeneralResponse.fromJson(responseBody);
+        var data = LoginResponse.fromJson(responseBody);
         responseData.status = true;
         responseData.data = data.data;
         responseData.message = data.message;

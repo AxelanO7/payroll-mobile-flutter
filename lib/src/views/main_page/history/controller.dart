@@ -1,3 +1,4 @@
+import 'package:absent_payroll/src/api/get_history_presence_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
@@ -24,6 +25,8 @@ class HistoryController extends BaseController {
     'November',
     'Desember',
   ];
+
+  String teacherId = '';
 
   listData({int? pageTo}) async {
     isLoadingStatus = true;
@@ -54,7 +57,7 @@ class HistoryController extends BaseController {
   }
 
   getDosenListData() async {
-    isLoadingStatus = false;
-    update();
+    teacherId = await SettingsUtils.getString("teacher_id");
+    var res = await GetHistoryPresenceApi().request(teacherId: teacherId);
   }
 }

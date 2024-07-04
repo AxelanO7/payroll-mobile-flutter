@@ -1,11 +1,14 @@
 import 'dart:io';
+
 import 'base_import.dart';
 
 class BaseController extends GetxController with WidgetsBindingObserver {
   ScreenArguments? screenArguments;
 
   bool _isLoading = false;
+
   bool get isLoading => _isLoading;
+
   set isLoading(val) {
     _isLoading = val;
     update();
@@ -78,5 +81,9 @@ class BaseController extends GetxController with WidgetsBindingObserver {
     } on SocketException catch (_) {
       return false;
     }
+  }
+
+  Future<String> get getTeacherId async {
+    return await SettingsUtils.getString('teacher_id');
   }
 }

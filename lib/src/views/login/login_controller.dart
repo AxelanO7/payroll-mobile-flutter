@@ -1,4 +1,3 @@
-import 'package:absent_payroll/src/api/index.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class LoginController extends BaseController {
@@ -34,7 +33,7 @@ class LoginController extends BaseController {
       Get.snackbar('Gagal', 'Username atau password tidak boleh kosong');
       return;
     }
-    var res = await LoginApi().request(email: usernameController.text, password: passwordController.text);
+    var res = await AuthUtils.doLogin(usernameController.text, passwordController.text);
     if (res.status) {
       Get.snackbar('Berhasil', 'Login berhasil');
     } else {
