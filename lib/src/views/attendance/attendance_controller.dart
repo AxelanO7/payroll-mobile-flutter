@@ -1,6 +1,9 @@
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:absent_payroll/src/api/clock_in_api.dart';
+import 'package:absent_payroll/src/api/clock_out_api.dart';
+import 'package:absent_payroll/src/api/upload_file_presence_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/attendance/sections/camera_section.dart';
 import 'package:absent_payroll/src/views/attendance/sections/confirmation_section.dart';
@@ -33,6 +36,8 @@ class AttendanceController extends BaseController {
     "Check In",
     "Check Out",
   ];
+
+  String teacherId = '';
 
   @override
   onInit() {
@@ -147,5 +152,46 @@ class AttendanceController extends BaseController {
   confirmAttendance() {
     Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
     Get.offAllNamed(AppRoutes.mainPage);
+  }
+
+  bool validateSubmit() {
+    int error = 0;
+    if (selectedTypeAbsence == null) {
+      error++;
+    }
+    return error == 0;
+  }
+
+  submitAttendance() async {
+    if (!validateSubmit()) {
+      Get.snackbar('Peringatan', 'Silahkan pilih tipe absensi');
+      return;
+    }
+    var resUpload = await UploadFilePresenceApi().request(file: imageFile!);
+    teacherId = await SettingsUtils.getString("teacher_id");
+    if (selectedTypeAbsence == "Check Out") {
+      var resSubmitOut = await ClockOutApi().request(
+          teacherId: teacherId,
+          clockOut: DateTime.parse(attendanceTime.toString()).toIso8601String(),
+          latitudeOut: gMapsCurrentPosition!.latitude.toString(),
+          longitudeOut: gMapsCurrentPosition!.longitude.toString(),
+          photoOut: imageFile!.path);
+      if (resSubmitOut.status) {
+        Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
+        Get.offAllNamed(AppRoutes.mainPage);
+      }
+    } else {
+      var resSubmitIn = await ClockInApi().request(
+          clockIn: DateTime.parse(attendanceTime.toString()).toIso8601String(),
+          device: Platform.isAndroid ? "android" : "ios",
+          latitudeIn: gMapsCurrentPosition!.latitude.toString(),
+          longitudeIn: gMapsCurrentPosition!.longitude.toString(),
+          photoIn: imageFile!.path,
+          teacherId: teacherId);
+      if (resSubmitIn.status) {
+        Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
+        Get.offAllNamed(AppRoutes.mainPage);
+      }
+    }
   }
 }

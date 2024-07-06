@@ -158,7 +158,10 @@ class TImeOffController extends BaseController {
   }
 
   handleSubmit() async {
-    if (!validateSubmit()) return;
+    if (!validateSubmit()) {
+      Get.snackbar('Peringatan', 'Data tidak lengkap');
+      return;
+    }
     teacherId = await SettingsUtils.getString("teacher_id");
     String type = getTypeEng();
     String documentName = "";
@@ -173,7 +176,6 @@ class TImeOffController extends BaseController {
     } else {
       var resUpload = await UploadFileTimeoffApi().request(file: proofFile!);
     }
-    return;
     var res = await SubmitTimeoffApi()
         .request(teacherId: teacherId, startDate: unformattedStartDate, endDate: unformattedEndDate, description: type, type: type, document: documentName);
     Get.snackbar("message", res.message.toString());

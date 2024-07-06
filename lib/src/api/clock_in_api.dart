@@ -7,15 +7,15 @@ class ClockInApi extends BaseApi {
   String url = CoreConfig.getApiUrl() + '/presence/in';
 
   Future<ResultApi> request({
-    required String employeeId,
+    required String teacherId,
     required String clockIn,
-    required String ipAddress,
+    String? ipAddress,
     required String device,
     required String latitudeIn,
     required String longitudeIn,
     required String photoIn,
   }) async {
-    url += '?teacher_id=$employeeId';
+    url += '?teacher_id=$teacherId';
 
     requestPayload = {
       "clock_in": clockIn,

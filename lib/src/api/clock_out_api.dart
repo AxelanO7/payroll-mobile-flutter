@@ -7,13 +7,13 @@ class ClockOutApi extends BaseApi {
   String url = CoreConfig.getApiUrl() + '/presence/out';
 
   Future<ResultApi> request({
-    required String employeeId,
+    required String teacherId,
     required String clockOut,
     required String latitudeOut,
     required String longitudeOut,
     required String photoOut,
   }) async {
-    url += '?teacher_id=$employeeId';
+    url += '?teacher_id=$teacherId';
 
     requestPayload = {
       "clock_out": clockOut,
