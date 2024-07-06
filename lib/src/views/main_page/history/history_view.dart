@@ -44,19 +44,30 @@ class _HistoryViewState extends State<HistoryView> {
                         child: Column(
                           children: [
                             _header(context, controller),
-                            ListView.builder(
-                              physics: const ScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: controller.dosenList.length,
-                              itemBuilder: (context, index) {
-                                var item = controller.dosenList[index];
-                                return HistoryListItem(
-                                  controller,
-                                  item,
-                                  index,
-                                );
-                              },
-                            ),
+                            if (controller.dosenList.isEmpty)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                child: Center(
+                                  child: Text(
+                                    'Data tidak ditemukan',
+                                    style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle().grayscaleRange[800]),
+                                  ),
+                                ),
+                              )
+                            else
+                              ListView.builder(
+                                physics: const ScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: controller.dosenList.length,
+                                itemBuilder: (context, index) {
+                                  var item = controller.dosenList[index];
+                                  return HistoryListItem(
+                                    controller,
+                                    item,
+                                    index,
+                                  );
+                                },
+                              ),
                           ],
                         ),
                       ),

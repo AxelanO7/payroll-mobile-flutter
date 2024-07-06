@@ -1,8 +1,6 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/attendance/attendance_controller.dart';
 
-import 'attendance_mobile_page.dart';
-
 class AttendanceView extends StatelessWidget {
   const AttendanceView({super.key});
 
@@ -28,7 +26,20 @@ class AttendanceView extends StatelessWidget {
         centerTitle: true,
       ),
       extendBody: true,
-      mobile: (controller) => const AttendanceMobilePage(),
+      mobile: (controller) => GetBuilder<AttendanceController>(
+        builder: (controller) => PopScope(
+          canPop: controller.canPop,
+          child: Scaffold(
+            body: PageView.builder(
+              itemCount: 3,
+              controller: controller.pageController,
+              scrollBehavior: CustomDisableGlowBehavior(),
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: controller.pageItemBuilder,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
