@@ -1,20 +1,20 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:marquee/marquee.dart';
 
-import 'controller.dart';
+import 'history_controller.dart';
 
-class ListItem extends StatefulWidget {
+class HistoryListItem extends StatefulWidget {
   final HistoryController controller;
   final Presence? item;
   final int index;
 
-  const ListItem(this.controller, this.item, this.index, {super.key});
+  const HistoryListItem(this.controller, this.item, this.index, {super.key});
 
   @override
-  State<ListItem> createState() => _ListItemState();
+  State<HistoryListItem> createState() => _HistoryListItemState();
 }
 
-class _ListItemState extends State<ListItem> {
+class _HistoryListItemState extends State<HistoryListItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(

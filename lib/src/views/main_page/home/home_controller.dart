@@ -2,13 +2,13 @@ import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_controller.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
-class HomePageController extends BaseController {
+class HomeController extends BaseController {
   var mainScrollController = ScrollController();
   final MainPageController rootController;
 
   EasyRefreshController refreshController = EasyRefreshController();
 
-  HomePageController({required this.rootController});
+  HomeController({required this.rootController});
 
   String name_user = "";
 

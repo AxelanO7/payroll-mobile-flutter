@@ -20,13 +20,11 @@ class StartupController extends BaseController {
       super.onReady();
       return;
     }
-    // nameUser = await SettingsUtils.getString('name_user');
-    // if (nameUser.isNotEmpty) {
-    //   Get.offNamed(AppRoutes.welcome);
-    // } else {
-    //   Get.offNamed(AppRoutes.login);
+    if (await AuthUtils.isLoggedIn()) {
+      Get.offNamed(AppRoutes.mainPage);
+    } else {
       Get.offNamed(AppRoutes.loginPage);
-    // }
+    }
     super.onReady();
   }
 }

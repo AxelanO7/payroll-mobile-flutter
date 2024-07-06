@@ -4,23 +4,23 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import 'package:absent_payroll/src/core/base_import.dart';
 
-import 'controller.dart';
+import 'home_controller.dart';
 
-class HomePageMobilePage extends StatefulWidget {
+class HomeView extends StatefulWidget {
   final MainPageController rootController;
 
-  const HomePageMobilePage({super.key, required this.rootController});
+  const HomeView({super.key, required this.rootController});
 
   @override
-  _HomePageMobilePageState createState() => _HomePageMobilePageState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomePageMobilePageState extends State<HomePageMobilePage> with AutomaticKeepAliveClientMixin<HomePageMobilePage> {
+class _HomeViewState extends State<HomeView> with AutomaticKeepAliveClientMixin<HomeView> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return GetBuilder<HomePageController>(
-      init: HomePageController(rootController: widget.rootController),
+    return GetBuilder<HomeController>(
+      init: HomeController(rootController: widget.rootController),
       builder: (controller) => Stack(
         children: [
           EasyRefresh(

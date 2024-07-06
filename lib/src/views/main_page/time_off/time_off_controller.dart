@@ -1,6 +1,7 @@
-import 'dart:ffi';
 import 'dart:io';
 
+import 'package:absent_payroll/src/api/submit_timeoff_api.dart';
+import 'package:absent_payroll/src/api/upload_file_timeoff_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -11,28 +12,28 @@ class TImeOffController extends BaseController {
 
   TextEditingController startDateController = TextEditingController();
   TextEditingController endDateController = TextEditingController();
+  String unformattedStartDate = '';
+  String unformattedEndDate = '';
+
   TextEditingController proofController = TextEditingController();
 
   File? proofFile;
   FilePickerResult? resFilePicked;
 
   String? typeTimeOff;
-  List<String> typeTimeOffList = [
-    "Sakit",
-    "Izin",
-  ];
+
+  // # TYPE : 'annual', 'sick_without_docs', 'sick_with_docs', 'holiday', 'unpaid', 'special_permit'
+  List<String> typeTimeOffList = ["Cuti Tahunan", "Sakit Tanpa Surat Dokter", "Sakit Dengan Surat Dokter", "Cuti Hari Raya", "Cuti Tanpa Gaji", "Izin Khusus"];
+
+  String teacherId = '';
 
   @override
   onInit() {
-    // isLoading = true;
-    // update();
     super.onInit();
   }
 
   @override
   onReady() async {
-    // isLoading = false;
-    update();
     super.onReady();
   }
 
@@ -119,6 +120,67 @@ class TImeOffController extends BaseController {
       proofFile = File(croppedFile.path);
       proofController.text = result.name;
       update();
+    }
+  }
+
+  bool validateSubmit() {
+    int error = 0;
+    if (startDateController.text.isEmpty) {
+      Get.snackbar('Peringatan', 'Tanggal Mulai tidak boleh kosong');
+      error++;
+    } else if (endDateController.text.isEmpty) {
+      Get.snackbar('Peringatan', 'Tanggal Selesai tidak boleh kosong');
+      error++;
+    } else if (proofController.text.isEmpty) {
+      Get.snackbar('Peringatan', 'Bukti tidak boleh kosong');
+      error++;
+    }
+    return error == 0;
+  }
+
+  String getTypeEng() {
+    switch (typeTimeOff) {
+      case "Cuti Tahunan":
+        return "annual";
+      case "Sakit Tanpa Surat Dokter":
+        return "sick_without_docs";
+      case "Sakit Dengan Surat Dokter":
+        return "sick_with_docs";
+      case "Cuti Hari Raya":
+        return "holiday";
+      case "Cuti Tanpa Gaji":
+        return "unpaid";
+      case "Izin Khusus":
+        return "special_permit";
+      default:
+        return "";
+    }
+  }
+
+  handleSubmit() async {
+    if (!validateSubmit()) return;
+    teacherId = await SettingsUtils.getString("teacher_id");
+    String type = getTypeEng();
+    String documentName = "";
+    if (proofFile != null) {
+      documentName = proofFile!.path.split('/').last;
+    } else if (resFilePicked != null) {
+      documentName = resFilePicked!.files.single.name;
+    }
+    if (documentName.isEmpty) {
+      Get.snackbar('Peringatan', 'Bukti tidak boleh kosong');
+      return;
+    } else {
+      var resUpload = await UploadFileTimeoffApi().request(file: proofFile!);
+    }
+    return;
+    var res = await SubmitTimeoffApi()
+        .request(teacherId: teacherId, startDate: unformattedStartDate, endDate: unformattedEndDate, description: type, type: type, document: documentName);
+    Get.snackbar("message", res.message.toString());
+    if (res.status) {
+      Get.snackbar('Berhasil', 'Pengajuan Cuti Berhasil');
+    } else {
+      Get.snackbar('Gagal', 'Pengajuan Cuti Gagal');
     }
   }
 }

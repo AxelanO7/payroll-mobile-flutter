@@ -27,7 +27,7 @@ class ClockOutApi extends BaseApi {
     try {
       await generateHeader(withToken: true);
 
-      var response = await post(Uri.parse(url), headers: requestHeaders, body: requestPayload);
+      var response = await post(Uri.parse(url), headers: requestHeaders, body: json.encode(requestPayload));
 
       checkResponse(response);
 

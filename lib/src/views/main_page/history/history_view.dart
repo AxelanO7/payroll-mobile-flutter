@@ -1,17 +1,17 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
-import 'controller.dart';
-import 'list_item.dart';
+import 'history_controller.dart';
+import 'history_list_item.dart';
 
-class HistoryMobilePage extends StatefulWidget {
-  const HistoryMobilePage({super.key});
+class HistoryView extends StatefulWidget {
+  const HistoryView({super.key});
 
   @override
-  State<HistoryMobilePage> createState() => _HistoryMobilePageState();
+  State<HistoryView> createState() => _HistoryViewState();
 }
 
-class _HistoryMobilePageState extends State<HistoryMobilePage> {
+class _HistoryViewState extends State<HistoryView> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HistoryController>(
@@ -50,7 +50,7 @@ class _HistoryMobilePageState extends State<HistoryMobilePage> {
                               itemCount: controller.dosenList.length,
                               itemBuilder: (context, index) {
                                 var item = controller.dosenList[index];
-                                return ListItem(
+                                return HistoryListItem(
                                   controller,
                                   item,
                                   index,

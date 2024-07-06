@@ -70,6 +70,7 @@ class TimeOffView extends StatelessWidget {
                                   lastDate: DateTime(2101),
                                 );
                                 if (picked != null) {
+                                  controller.unformattedStartDate = DateFormat('yyyy-MM-dd').format(picked);
                                   controller.startDateController.text = DateFormat('dd MMMM yyyy').format(picked);
                                 }
                               },
@@ -103,6 +104,7 @@ class TimeOffView extends StatelessWidget {
                                   lastDate: DateTime(2101),
                                 );
                                 if (picked != null) {
+                                  controller.unformattedEndDate = DateFormat('yyyy-MM-dd').format(picked);
                                   controller.endDateController.text = DateFormat('dd MMMM yyyy').format(picked);
                                 }
                               },
@@ -173,7 +175,7 @@ class TimeOffView extends StatelessWidget {
                         ),
                         SizedBox(height: 24),
                         CustomButton(
-                          onPressed: () {},
+                          onPressed: controller.handleSubmit,
                           width: Get.width - 40,
                           height: 48,
                           child: Text(
