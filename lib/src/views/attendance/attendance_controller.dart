@@ -149,11 +149,6 @@ class AttendanceController extends BaseController {
     pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 
-  confirmAttendance() {
-    Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
-    Get.offAllNamed(AppRoutes.mainPage);
-  }
-
   bool validateSubmit() {
     int error = 0;
     if (selectedTypeAbsence == null) {
@@ -190,7 +185,7 @@ class AttendanceController extends BaseController {
           teacherId: teacherId);
       if (resSubmitIn.status) {
         Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
-        Get.offAllNamed(AppRoutes.mainPage);
+        // Get.offAllNamed(AppRoutes.mainPage);
       }
     }
   }
