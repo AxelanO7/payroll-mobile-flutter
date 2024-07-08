@@ -27,7 +27,7 @@ class BaseApi {
       if (response.statusCode >= 500) {
         Get.snackbar(
           'Error ${response.statusCode}',
-          'Wah server lagi penuh nih, sabar yaa',
+          'Terjadi kesehalahan pada server, silahkan coba beberapa saat lagi',
           snackStyle: SnackStyle.FLOATING,
         );
         // TinySnackBar.material(
@@ -117,7 +117,7 @@ class BaseApi {
     } else if (response.statusCode >= 500) {
       Get.snackbar(
         'Error ${response.statusCode}',
-        'Wah server lagi penuh nih, sabar yaa',
+        'Terjadi kesehalahan pada server, silahkan coba beberapa saat lagi',
         snackStyle: SnackStyle.FLOATING,
       );
       // TinySnackBar.material(
