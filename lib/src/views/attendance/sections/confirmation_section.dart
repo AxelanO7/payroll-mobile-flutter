@@ -130,7 +130,7 @@ class ConfirmationSection extends StatelessWidget {
                               height: 48,
                               color: ColorStyle.customGreyColor,
                               radius: 12,
-                              onPressed: controller.confirmAttendance,
+                              onPressed: controller.submitAttendance,
                               child: Text('Konfirmasi', style: TypographyStyle.body2Bold.copyWith(color: ColorStyle.whiteColor)),
                             ),
                             const SizedBox(height: 12),
