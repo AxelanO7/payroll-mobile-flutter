@@ -3,6 +3,7 @@ import 'package:absent_payroll/src/views/attendance/attendance_view.dart';
 import 'package:absent_payroll/src/views/login//login_view.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_view.dart';
 import 'package:absent_payroll/src/views/startup/startup_view.dart';
+import 'package:absent_payroll/src/views/time_off/time_off_view.dart';
 
 part 'app_routes.dart';
 
@@ -13,6 +14,10 @@ abstract class AppPages {
       page: () => const StartupView(),
     ),
     GetPage(
+      name: AppRoutes.loginPage,
+      page: () => const LoginView(),
+    ),
+    GetPage(
       name: AppRoutes.mainPage,
       page: () => const MainPageView(),
     ),
@@ -21,8 +26,8 @@ abstract class AppPages {
       page: () => const AttendanceView(),
     ),
     GetPage(
-      name: AppRoutes.loginPage,
-      page: () => const LoginView(),
+      name: AppRoutes.timeOffPage,
+      page: () => const TimeOffView(),
     ),
   ];
 }
