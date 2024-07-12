@@ -35,7 +35,7 @@ class ClockOutApi extends BaseApi {
       if (checkStatus200(response)) {
         var responseBody = json.decode(response.body);
         // var data = CheckCodeResponse.fromJson(responseBody);
-        // responseData.status = true;
+        responseData.status = true;
         // responseData.data = data.data;
         // responseData.message = data.message.first;
       }
