@@ -1,6 +1,6 @@
 import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/main_page/history/history_view.dart';
-import 'package:absent_payroll/src/views/main_page/time_off/time_off_view.dart';
+import 'package:absent_payroll/src/views/main_page/payroll/payroll_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'home/home_view.dart';
@@ -43,7 +43,7 @@ class MainPageView extends StatelessWidget {
               children: [
                 const HistoryView(),
                 HomeView(rootController: controller),
-                const TimeOffView(),
+                const PayrollView(),
               ],
             ),
             floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
