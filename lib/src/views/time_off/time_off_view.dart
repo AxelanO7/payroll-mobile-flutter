@@ -1,6 +1,7 @@
 import 'package:absent_payroll/src/core/base_import.dart';
-import 'package:absent_payroll/src/views/main_page/time_off/time_off_controller.dart';
 import 'package:intl/intl.dart';
+
+import 'time_off_controller.dart';
 
 class TimeOffView extends StatelessWidget {
   const TimeOffView({super.key});
