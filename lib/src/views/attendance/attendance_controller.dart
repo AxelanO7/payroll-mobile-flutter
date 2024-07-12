@@ -11,6 +11,7 @@ import 'package:absent_payroll/src/views/attendance/sections/location_section.da
 import 'package:google_maps_flutter/google_maps_flutter.dart' as GMaps;
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 
 class AttendanceController extends BaseController {
@@ -158,6 +159,7 @@ class AttendanceController extends BaseController {
   }
 
   submitAttendance() async {
+    String parsedTime = DateFormat('HH:mm').format(attendanceTime);
     if (!validateSubmit()) {
       Get.snackbar('Peringatan', 'Silahkan pilih tipe absensi');
       return;
@@ -167,9 +169,11 @@ class AttendanceController extends BaseController {
     if (selectedTypeAbsence == "Check Out") {
       var resSubmitOut = await ClockOutApi().request(
           teacherId: teacherId,
-          clockOut: DateTime.parse(attendanceTime.toString()).toIso8601String(),
-          latitudeOut: gMapsCurrentPosition!.latitude.toString(),
-          longitudeOut: gMapsCurrentPosition!.longitude.toString(),
+          clockOut: parsedTime,
+          // latitudeOut: gMapsCurrentPosition!.latitude.toString(),
+          latitudeOut: "-8.6908087",
+          // longitudeOut: gMapsCurrentPosition!.longitude.toString(),
+          longitudeOut: "115.2237311",
           photoOut: imageFile!.path);
       if (resSubmitOut.status) {
         Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
@@ -177,15 +181,17 @@ class AttendanceController extends BaseController {
       }
     } else {
       var resSubmitIn = await ClockInApi().request(
-          clockIn: DateTime.parse(attendanceTime.toString()).toIso8601String(),
+          clockIn: parsedTime,
           device: Platform.isAndroid ? "android" : "ios",
-          latitudeIn: gMapsCurrentPosition!.latitude.toString(),
-          longitudeIn: gMapsCurrentPosition!.longitude.toString(),
+          // latitudeIn: gMapsCurrentPosition!.latitude.toString(),
+          latitudeIn: "-8.6908087",
+          // longitudeIn: gMapsCurrentPosition!.longitude.toString(),
+          longitudeIn: "115.2237311",
           photoIn: imageFile!.path,
           teacherId: teacherId);
       if (resSubmitIn.status) {
         Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
-        // Get.offAllNamed(AppRoutes.mainPage);
+        Get.offAllNamed(AppRoutes.mainPage);
       }
     }
   }
