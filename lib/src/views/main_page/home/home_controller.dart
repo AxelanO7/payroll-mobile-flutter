@@ -40,4 +40,8 @@ class HomeController extends BaseController {
   doAttendance() {
     Get.toNamed(AppRoutes.attendancePage);
   }
+
+  handleTimeOut() {
+    Get.toNamed(AppRoutes.timeOffPage);
+  }
 }

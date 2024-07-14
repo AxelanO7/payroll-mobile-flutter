@@ -1,8 +1,7 @@
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:absent_payroll/src/views/main_page/main_page_controller.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-
-import 'package:absent_payroll/src/core/base_import.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'home_controller.dart';
 
@@ -231,6 +230,93 @@ class _HomeViewState extends State<HomeView> with AutomaticKeepAliveClientMixin<
                                                 border: Border.all(color: ColorStyle().grayscaleRange[200]!, width: 2)),
                                             child: InkWell(
                                               borderRadius: BorderRadius.circular(12),
+                                              onTap: controller.handleTimeOut,
+                                              child: Stack(
+                                                children: [
+                                                  Align(
+                                                      alignment: Alignment.bottomCenter,
+                                                      child: Container(
+                                                        height: 85,
+                                                        color: ColorStyle().grayscaleRange[100],
+                                                      )),
+                                                  Column(
+                                                    mainAxisAlignment: MainAxisAlignment.end,
+                                                    children: [
+                                                      Padding(
+                                                        padding: const EdgeInsets.only(left: 8.0),
+                                                        child: Align(
+                                                          alignment: Alignment.center,
+                                                          child: SvgPicture.asset(
+                                                            "assets/images/global/quit.svg",
+                                                            height: 100,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
+                                                          color: ColorStyle.whiteColor,
+                                                        ),
+                                                        child: Column(
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children: [
+                                                            Container(
+                                                              height: 2,
+                                                              color: ColorStyle().grayscaleRange[200],
+                                                            ),
+                                                            Padding(
+                                                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                                              child: Center(
+                                                                child: Column(
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("Cuti",
+                                                                        style: TypographyStyle.body1SemiBold.copyWith(color: ColorStyle().grayscaleRange[900])),
+                                                                    Text("Pengajuan cuti",
+                                                                        style: TypographyStyle.body3Medium.copyWith(color: ColorStyle().grayscaleRange[500])),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 16, right: 8.0, top: 8, bottom: 8),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(16),
+                                          child: Container(
+                                            margin: const EdgeInsets.only(right: 8),
+                                            height: 180,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(16),
+                                                border: Border.all(color: ColorStyle().grayscaleRange[200]!, width: 2)),
+                                            child: InkWell(
+                                              borderRadius: BorderRadius.circular(12),
                                               onTap: controller.resetAccount,
                                               child: Stack(
                                                 children: [
@@ -291,6 +377,7 @@ class _HomeViewState extends State<HomeView> with AutomaticKeepAliveClientMixin<
                                           ),
                                         ),
                                       ),
+                                      Expanded(child: SizedBox.shrink()),
                                     ],
                                   ),
                                 ),
