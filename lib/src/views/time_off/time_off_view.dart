@@ -24,7 +24,13 @@ class TimeOffView extends StatelessWidget {
               systemNavigationBarIconBrightness: Brightness.dark,
               systemNavigationBarDividerColor: ColorStyle.whiteColor,
             ),
-            leading: const SizedBox.shrink(),
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: ColorStyle().grayscaleRange[900],
+              ),
+              onPressed: Get.back,
+            ),
             title: Text(
               "Cuti",
               style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[900]),
