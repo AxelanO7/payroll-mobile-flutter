@@ -28,21 +28,27 @@ class _HistoryListItemState extends State<HistoryListItem> {
               children: [
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: Marquee(
-                      blankSpace: 20,
-                      decelerationDuration: const Duration(milliseconds: 500),
-                      accelerationCurve: Curves.easeInOut,
-                      decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.date}',
+                    // height: 50,
+                    child:
+                    Text (
+                      '${widget.item?.presenceDate}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
                     ),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.presenceDate}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
                   ),
                 ),
                 Expanded(
                   child: Container(
                     height: 50,
-                    child: (widget.item?.checkin == null || widget.item?.checkin == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    child: (widget.item?.clockIn == "") ? Icon(Icons.close) : Icon(Icons.check),
                     // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
@@ -56,7 +62,7 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 Expanded(
                   child: Container(
                     height: 50,
-                    child: (widget.item?.checkout == null || widget.item?.checkout == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    child: (widget.item?.clockOut == "") ? Icon(Icons.close) : Icon(Icons.check),
                   // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
@@ -69,15 +75,21 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: Marquee(
-                      blankSpace: 20,
-                      decelerationDuration: const Duration(milliseconds: 500),
-                      accelerationCurve: Curves.easeInOut,
-                      decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.description}',
+                    // height: 50,
+                    child:
+                    Text (
+                      '${widget.item?.status.toCapitalized()}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
                     ),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.status}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
                   ),
                 ),
               ],

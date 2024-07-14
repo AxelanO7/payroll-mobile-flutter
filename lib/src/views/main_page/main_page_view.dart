@@ -80,7 +80,7 @@ class MainPageView extends StatelessWidget {
                 onTabSelected: controller.tapTab,
                 items: [
                   FABBottomAppBarItem(iconData: 'assets/images/global/list.svg', text: 'Riwayat'),
-                  FABBottomAppBarItem(iconData: 'assets/images/global/profile.svg', text: 'Cuti'),
+                  FABBottomAppBarItem(iconData: 'assets/images/global/profile.svg', text: 'Slip Gaji'),
                 ],
               ),
             ),

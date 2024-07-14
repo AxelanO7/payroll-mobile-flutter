@@ -19,7 +19,7 @@ class _HistoryViewState extends State<HistoryView> {
       builder: (controller) => GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          body: (controller.isLoadingStatus)
+          body: (controller.isLoading)
               ? const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -38,13 +38,16 @@ class _HistoryViewState extends State<HistoryView> {
                     EasyRefresh(
                       header: MaterialHeader(valueColor: AlwaysStoppedAnimation<Color>(ColorStyle.customGreyColor)),
                       controller: controller.refreshController,
-                      // onRefresh: controller.onRefresh,
+                      onRefresh: () async {
+                        controller.listData();
+                        controller.refreshController.finishRefresh();
+                      },
                       child: SingleChildScrollView(
                         physics: const ScrollPhysics(),
                         child: Column(
                           children: [
                             _header(context, controller),
-                            if (controller.dosenList.isEmpty)
+                            if (controller.absentList.isEmpty)
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 16),
                                 child: Center(
@@ -54,13 +57,15 @@ class _HistoryViewState extends State<HistoryView> {
                                   ),
                                 ),
                               )
+                            else if (controller.isLoadingHistory)
+                              CircularProgressIndicator()
                             else
                               ListView.builder(
                                 physics: const ScrollPhysics(),
                                 shrinkWrap: true,
-                                itemCount: controller.dosenList.length,
+                                itemCount: controller.absentList.length,
                                 itemBuilder: (context, index) {
-                                  var item = controller.dosenList[index];
+                                  var item = controller.absentList[index];
                                   return HistoryListItem(
                                     controller,
                                     item,
@@ -106,30 +111,41 @@ class _HistoryViewState extends State<HistoryView> {
         SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: DropdownButtonFormField<String>(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                  color: ColorStyle().grayscaleRange[200]!,
+          child: Row(
+            children: [
+              Expanded(
+                child: DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(
+                        color: ColorStyle().grayscaleRange[200]!,
+                      ),
+                    ),
+                  ),
+                  value: controller.selectedMonth,
+                  onChanged: (String? newValue) {
+                    controller.handleMonthChange(newValue);
+                  },
+                  items: controller.monthList.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      ),
+                    );
+                  }).toList(),
                 ),
               ),
-            ),
-            value: controller.selectedMonth,
-            onChanged: (String? newValue) {
-              controller.selectedMonth = newValue!;
-              controller.update();
-            },
-            items: controller.monthList.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                  style: TypographyStyle.body2Reguler.copyWith(color: ColorStyle().grayscaleRange[800]),
-                ),
-              );
-            }).toList(),
+              IconButton(
+                onPressed: () {
+                  controller.handleMonthChange(null);
+                },
+                icon: const Icon(Icons.refresh),
+              ),
+            ],
           ),
         ),
         SizedBox(height: 20),
@@ -160,7 +176,7 @@ class _HistoryViewState extends State<HistoryView> {
               ),
               Expanded(
                 child: Text(
-                  'Keterangan',
+                  'Status',
                   textAlign: TextAlign.center,
                   style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                 ),

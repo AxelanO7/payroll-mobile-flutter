@@ -20,10 +20,10 @@ class GetHistoryPresenceApi extends BaseApi {
       responseData.statusCode = response.statusCode;
       if (checkStatus200(response)) {
         var responseBody = json.decode(response.body);
-        // var data = CheckCodeResponse.fromJson(responseBody);
-        // responseData.status = true;
-        // responseData.listData = data.data;
-        // responseData.message = data.message.first;
+        var data = GetPresencesResponse.fromJson(responseBody);
+        responseData.status = true;
+        responseData.listData = data.data;
+        responseData.message = data.message;
       }
     } catch (e) {
       printError(e);

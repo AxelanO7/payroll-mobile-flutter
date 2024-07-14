@@ -11,4 +11,4 @@ export 'responses/error_laravel_generic_response.dart';
 export 'responses/error_laravel_response.dart';
 export 'responses/general_response.dart';
 export 'presence/models/presence.dart';
-export 'presence/responses/get_presence.dart';
+export 'presence/responses/get_presences_response.dart';

@@ -1,7 +1,22 @@
 {
-  "name": "",
-  "date": "2018-09-10",
-  "checkin?": "2018-09-10",
-  "checkout?": "2018-09-10",
-  "description": ""
+  "id": 1,
+  "teacher_id": "clvx15c5y00031cgl5ju501mz",
+  "approved_by": "cly2aaiys0001vr04u7nwlh4l",
+  "uuid": "clyflm5eb0001hy04vhv2t2or",
+  "clock_in": "16:38:00",
+  "clock_out": "17:37:00",
+  "ip_address": null,
+  "device": "android",
+  "latitude_in": "-8.6908087",
+  "longitude_in": "115.2237311",
+  "latitude_out": "-8.6908087",
+  "longitude_out": "115.2237311",
+  "distance_in": 2,
+  "distance_out": 2,
+  "photo_in": "/data/user/0/widya_sakti.absent_payroll.absent_payroll/cache/image_cropper_1720600740070.jpg",
+  "photo_out": "/data/user/0/widya_sakti.absent_payroll.absent_payroll/cache/image_cropper_1720604232488.jpg",
+  "presence_date": "2024-07-10",
+  "status": "approved",
+  "created_at": "2024-07-10 16:49:03",
+  "updated_at": "2024-07-10 17:37:25"
 }
