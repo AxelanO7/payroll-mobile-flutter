@@ -4,7 +4,7 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class HistoryController extends BaseController {
   var mainScrollController = ScrollController();
-  List<Presence?> absentList = [];
+  List<Presence?> absentList = [], originalAbsentList = [];
 
   EasyRefreshController refreshController = EasyRefreshController();
 
@@ -29,7 +29,7 @@ class HistoryController extends BaseController {
   bool isLoadingHistory = false;
 
   listData({int? pageTo}) async {
-    getDosenListData();
+    getHistoryAbsents();
   }
 
   @override
@@ -41,7 +41,7 @@ class HistoryController extends BaseController {
 
   @override
   onReady() async {
-    await getDosenListData();
+    await getHistoryAbsents();
     isLoading = false;
     update();
     super.onReady();
@@ -59,25 +59,29 @@ class HistoryController extends BaseController {
     }
   }
 
-  getDosenListData({String? month}) async {
+  getHistoryAbsents({String? month}) async {
     isLoadingHistory = true;
     update();
+    if (month != null) {
+      absentList = originalAbsentList;
+      absentList = absentList.where((element) => element!.presenceDate.contains(month)).toList();
+      isLoadingHistory = false;
+      update();
+      return;
+    }
     teacherId = await SettingsUtils.getString("teacher_id");
     var res = await GetHistoryPresenceApi().request(teacherId: teacherId);
     if (res.status) {
-      if (month != null) {
-        absentList = res.listData!.where((element) => element!.presenceDate!.contains(month)).toList() as List<Presence?>;
-      } else {
-        absentList = res.listData as List<Presence?>;
-      }
-      isLoadingHistory = false;
-      update();
+      originalAbsentList = res.listData as List<Presence?>;
+      absentList = res.listData as List<Presence?>;
     }
+    isLoadingHistory = false;
+    update();
   }
 
   handleMonthChange(String? newValue) {
     selectedMonth = newValue;
-    getDosenListData(month: selectedMonth);
+    getHistoryAbsents(month: selectedMonth);
     update();
   }
 }

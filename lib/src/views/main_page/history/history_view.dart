@@ -58,7 +58,14 @@ class _HistoryViewState extends State<HistoryView> {
                                 ),
                               )
                             else if (controller.isLoadingHistory)
-                              CircularProgressIndicator()
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 24.0),
+                                child: SizedBox(
+                                  height: 32,
+                                  width: 32,
+                                  child: CircularProgressIndicator(),
+                                ),
+                              )
                             else
                               ListView.builder(
                                 physics: const ScrollPhysics(),
@@ -110,7 +117,7 @@ class _HistoryViewState extends State<HistoryView> {
         // make month with check box
         SizedBox(height: 20),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
               Expanded(
