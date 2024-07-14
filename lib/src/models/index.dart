@@ -7,6 +7,8 @@ export 'misc/error_generic_data.dart';
 export 'misc/errors.dart';
 export 'misc/error_data.dart';
 export 'misc/screen_arguments.dart';
+export 'payroll/models/payroll.dart';
+export 'payroll/responses/get_payroll_response.dart';
 export 'responses/error_laravel_generic_response.dart';
 export 'responses/error_laravel_response.dart';
 export 'responses/general_response.dart';

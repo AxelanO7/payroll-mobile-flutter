@@ -1,11 +1,10 @@
 import 'package:absent_payroll/src/core/base_import.dart';
-import 'package:marquee/marquee.dart';
 
 import 'payroll_controller.dart';
 
 class PayrollListItem extends StatefulWidget {
   final PayrollController controller;
-  final Presence? item;
+  final Payroll? item;
   final int index;
 
   const PayrollListItem(this.controller, this.item, this.index, {super.key});
@@ -28,21 +27,30 @@ class _PayrollListItemState extends State<PayrollListItem> {
               children: [
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: Marquee(
-                      blankSpace: 20,
-                      decelerationDuration: const Duration(milliseconds: 500),
-                      accelerationCurve: Curves.easeInOut,
-                      decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.date}',
+                    // height: 50,
+                    child: Text(
+                      '${widget.item?.salaryCreated}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
                     ),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.salaryCreated}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: (widget.item?.checkin == null || widget.item?.checkin == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    // height: 50,
+                    child: Text(
+                      '${widget.item?.honor}',
+                      style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
+                    ),
                     // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
@@ -55,9 +63,13 @@ class _PayrollListItemState extends State<PayrollListItem> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: (widget.item?.checkout == null || widget.item?.checkout == "") ? Icon(Icons.close) : Icon(Icons.check),
-                  // Marquee(
+                    // height: 50,
+                    child: Text(
+                      '${widget.item?.kehadiran}',
+                      style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
+                    ),
+                    // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
                     //   accelerationCurve: Curves.easeInOut,
@@ -69,15 +81,20 @@ class _PayrollListItemState extends State<PayrollListItem> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: Marquee(
-                      blankSpace: 20,
-                      decelerationDuration: const Duration(milliseconds: 500),
-                      accelerationCurve: Curves.easeInOut,
-                      decelerationCurve: Curves.easeInOut,
-                      text: '${widget.item?.description}',
+                    // height: 50,
+                    child: Text(
+                      '${widget.item?.paymentMethod.toCapitalized()}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
                     ),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.status}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
                   ),
                 ),
               ],
