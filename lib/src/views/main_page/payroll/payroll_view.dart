@@ -171,21 +171,21 @@ class _PayrollViewState extends State<PayrollView> {
               ),
               Expanded(
                 child: Text(
-                  'Check In',
+                  'Honor',
                   textAlign: TextAlign.center,
                   style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                 ),
               ),
               Expanded(
                 child: Text(
-                  'Check Out',
+                  'Kehadiran',
                   textAlign: TextAlign.center,
                   style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                 ),
               ),
               Expanded(
                 child: Text(
-                  'Status',
+                  'Metode Pembayaran',
                   textAlign: TextAlign.center,
                   style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                 ),
