@@ -34,8 +34,8 @@ class AttendanceController extends BaseController {
 
   String? selectedTypeAbsence;
   List<String> typeAbsenceList = [
-    "Check In",
-    "Check Out",
+    "Clock In",
+    "Clock Out",
   ];
 
   String teacherId = '';
@@ -165,8 +165,13 @@ class AttendanceController extends BaseController {
       return;
     }
     var resUpload = await UploadFilePresenceApi().request(file: imageFile!);
+    late String urlUpload = "";
+    if (resUpload.status) {
+      UrlUpload responseUpload = resUpload.data as UrlUpload;
+      urlUpload = responseUpload.url;
+    }
     teacherId = await SettingsUtils.getString("teacher_id");
-    if (selectedTypeAbsence == "Check Out") {
+    if (selectedTypeAbsence == "Clock Out") {
       var resSubmitOut = await ClockOutApi().request(
           teacherId: teacherId,
           clockOut: parsedTime,
@@ -174,10 +179,10 @@ class AttendanceController extends BaseController {
           latitudeOut: "-8.6908087",
           // longitudeOut: gMapsCurrentPosition!.longitude.toString(),
           longitudeOut: "115.2237311",
-          photoOut: imageFile!.path);
+          photoOut: urlUpload);
       if (resSubmitOut.status) {
         Get.snackbar('Berhasil', 'Absensi berhasil disimpan');
-        Get.offAllNamed(AppRoutes.mainPage);
+        // Get.offAllNamed(AppRoutes.mainPage);
       }
     } else {
       var resSubmitIn = await ClockInApi().request(
@@ -187,7 +192,7 @@ class AttendanceController extends BaseController {
           latitudeIn: "-8.6908087",
           // longitudeIn: gMapsCurrentPosition!.longitude.toString(),
           longitudeIn: "115.2237311",
-          photoIn: imageFile!.path,
+          photoIn: urlUpload,
           teacherId: teacherId);
       if (resSubmitIn.status) {
         Get.snackbar('Berhasil', 'Absensi berhasil disimpan');

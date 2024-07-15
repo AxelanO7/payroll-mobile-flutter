@@ -163,11 +163,11 @@ class BaseApi {
   checkStatus200X(StreamedResponse response) async {
     bool doNext = false;
     if (response.statusCode == 200 || response.statusCode == 201) {
-      msx = await response.stream.bytesToString();
-      Map<String, dynamic> responseBody = json.decode(msx);
-      String message = responseBody.containsKey('message') ? responseBody['message'] : '';
-      List<dynamic> messages = responseBody.containsKey('messages') ? responseBody['messages'] : '';
-      responseData.message = messages.first != null ? messages.first.toString() : message;
+      // msx = await response.stream.bytesToString();
+      // Map<String, dynamic> responseBody = json.decode(msx);
+      // String message = responseBody.containsKey('message') ? responseBody['message'] : '';
+      // List<dynamic> messages = responseBody.containsKey('messages') ? responseBody['messages'] : '';
+      // responseData.message = messages.first != null ? messages.first.toString() : message;
       doNext = true;
     }
     return doNext;
