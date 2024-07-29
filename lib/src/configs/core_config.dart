@@ -10,8 +10,8 @@ class CoreConfig {
   static final bool isMacOS = !isDesktopClient && Platform.isMacOS;
 
   static const String _urlBaseAPILocal = '';
-  static const String _urlBaseAPIDebug = 'http://128.199.86.138/api';
-  static const String _urlBaseAPIProduction = 'http://128.199.86.138/api';
+  static const String _urlBaseAPIDebug = 'http://34.50.72.168/api';
+  static const String _urlBaseAPIProduction = 'http://34.50.72.168/api';
   static const String _urlBaseCDN = '';
 
   static bool getDebuggableConfig(String configName) {
