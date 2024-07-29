@@ -148,6 +148,8 @@ class _PayrollViewState extends State<PayrollView> {
                   }).toList(),
                 ),
               ),
+              // generate pdf
+              IconButton(onPressed: controller.handlePdfDownload, icon: const Icon(Icons.download)),
               IconButton(
                 onPressed: () {
                   controller.handleMonthChange(null);
