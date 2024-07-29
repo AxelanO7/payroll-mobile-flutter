@@ -56,7 +56,7 @@ class DateHelper {
     return format.format(date);
   }
 
-  static String formatDateHumanShort(dynamic datex, {bool forcedWIB=false, String? customFormat, bool textWIB=true}) {
+  static String formatDateHumanShort(dynamic datex, {bool forcedWIB = false, String? customFormat, bool textWIB = true}) {
     if (datex == null) return '';
     DateTime date = DateTime.now();
     if (datex is DateTime) {
@@ -65,9 +65,7 @@ class DateHelper {
     if (datex is String) {
       date = forcedWIB ? fromStringFixedWIB(datex) : fromString(datex, withWIB: false);
     }
-    String dtFormat = forcedWIB
-        ? '${customFormat ?? 'EEEE, dd/MM/yyyy • HH:mm'}${textWIB ? ' WIB' : ''}'
-        : customFormat ?? 'EEEE, dd/MM/yyyy • HH:mm';
+    String dtFormat = forcedWIB ? '${customFormat ?? 'EEEE, dd/MM/yyyy • HH:mm'}${textWIB ? ' WIB' : ''}' : customFormat ?? 'EEEE, dd/MM/yyyy • HH:mm';
     Locale myLocale = Localizations.localeOf(Get.context!);
     final format = DateFormat(dtFormat, myLocale.languageCode);
     // print(format.format(date),);
@@ -114,11 +112,7 @@ class DateHelper {
   }
 
   static String formatDateHuman(dynamic datex,
-      {bool showTime = false,
-      bool withEnter = false,
-      bool withDayName = true,
-      bool useAbbr = false,
-      bool yesterDay = false}) {
+      {bool showTime = false, bool withEnter = false, bool withDayName = true, bool useAbbr = false, bool yesterDay = false}) {
     if (datex == null) return '';
     DateTime date = DateTime.now();
     if (datex is DateTime) {
@@ -155,15 +149,7 @@ class DateHelper {
   }
 
   static String? getDayName(String? day) {
-    Map<String, String> dayData = {
-      '1': 'Senin',
-      '2': 'Selasa',
-      '3': 'Rabu',
-      '4': 'Kamis',
-      '5': 'Jumat',
-      '6': 'Sabtu',
-      '7': 'Minggu'
-    };
+    Map<String, String> dayData = {'1': 'Senin', '2': 'Selasa', '3': 'Rabu', '4': 'Kamis', '5': 'Jumat', '6': 'Sabtu', '7': 'Minggu'};
     if (day == null || day.isEmpty) return '';
     return dayData[day];
   }
@@ -194,7 +180,7 @@ class DateHelper {
     return format.format(date);
   }
 
-  static DateTime fromString(String? val, {bool withWIB=true}) {
+  static DateTime fromString(String? val, {bool withWIB = true}) {
     if (val == null) return DateTime.now();
     if (withWIB) {
       if (val.split(" ").length > 1) {
@@ -245,7 +231,7 @@ class DateHelper {
     return DateTime.parse(date);
   }
 
-  static bool isExpired(String? date, {int? inMonth, DateTime? targetTime, bool withTime=false}) {
+  static bool isExpired(String? date, {int? inMonth, DateTime? targetTime, bool withTime = false}) {
     if (date == null) return false;
     bool status = false;
     DateTime? expired = fromString(date);
@@ -254,12 +240,10 @@ class DateHelper {
       expired = DateTime(expired.year, expired.month + inMonth, expired.day);
     }
     var open = withTime
-        ? DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second,
-            nowDate.millisecond, nowDate.microsecond)
+        ? DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second, nowDate.millisecond, nowDate.microsecond)
         : DateTime(nowDate.year, nowDate.month, nowDate.day);
     var close = withTime
-        ? DateTime(expired.year, expired.month, expired.day, expired.hour, expired.minute, expired.second,
-            expired.millisecond, expired.microsecond)
+        ? DateTime(expired.year, expired.month, expired.day, expired.hour, expired.minute, expired.second, expired.millisecond, expired.microsecond)
         : DateTime(expired.year, expired.month, expired.day);
     status = open.isAfter(close);
     return status;
@@ -273,10 +257,8 @@ class DateHelper {
     if (inMonth != null) {
       expired = DateTime(expired.year, expired.month + inMonth, expired.day);
     }
-    var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second,
-        nowDate.millisecond, nowDate.microsecond);
-    var close = DateTime(expired.year, expired.month, expired.day, expired.hour, expired.minute, expired.second,
-        expired.millisecond, expired.microsecond);
+    var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second, nowDate.millisecond, nowDate.microsecond);
+    var close = DateTime(expired.year, expired.month, expired.day, expired.hour, expired.minute, expired.second, expired.millisecond, expired.microsecond);
     // if(isOneDayBefore){
     //   close = DateTime(expired.year, expired.month, expired.day-1,expired.hour+23,expired.minute+59,expired.second,expired.millisecond,expired.microsecond);
     // }
@@ -321,8 +303,7 @@ class DateHelper {
     return timeago.format(value, locale: 'id');
   }
 
-  static bool isBetweenDates(String? startDate, String? endDate,
-      {bool withTime=false, bool beforeEnd= false, DateTime? targetDate, bool showLog= false}) {
+  static bool isBetweenDates(String? startDate, String? endDate, {bool withTime = false, bool beforeEnd = false, DateTime? targetDate, bool showLog = false}) {
     if (startDate == null || endDate == null) return false;
     bool status = false;
     DateTime? targetNowDate;
@@ -355,17 +336,13 @@ class DateHelper {
     bool status2 = false;
     if (withTime) {
       if (stDate != null) {
-        var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second,
-            nowDate.millisecond, nowDate.microsecond);
-        var close = DateTime(stDate.year, stDate.month, stDate.day, stDate.hour, stDate.minute, stDate.second,
-            stDate.millisecond, stDate.microsecond);
+        var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second, nowDate.millisecond, nowDate.microsecond);
+        var close = DateTime(stDate.year, stDate.month, stDate.day, stDate.hour, stDate.minute, stDate.second, stDate.millisecond, stDate.microsecond);
         status1 = open.isAfter(close) || open.isAtSameMomentAs(close);
       }
       if (enDate != null) {
-        var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second,
-            nowDate.millisecond, nowDate.microsecond);
-        var close = DateTime(enDate.year, enDate.month, enDate.day, enDate.hour, enDate.minute, enDate.second,
-            enDate.millisecond, enDate.microsecond);
+        var open = DateTime(nowDate.year, nowDate.month, nowDate.day, nowDate.hour, nowDate.minute, nowDate.second, nowDate.millisecond, nowDate.microsecond);
+        var close = DateTime(enDate.year, enDate.month, enDate.day, enDate.hour, enDate.minute, enDate.second, enDate.millisecond, enDate.microsecond);
         if (!beforeEnd) {
           status2 = open.isBefore(close) || open.isAtSameMomentAs(close);
         } else {
@@ -461,5 +438,36 @@ class DateHelper {
     from = DateTime(from.year, from.month, from.day);
     to = DateTime(to.year, to.month, to.day);
     return (to.difference(from).inHours / 24).round();
+  }
+
+  int getMonthNumber(String month) {
+    switch (month) {
+      case 'Januari':
+        return 1;
+      case "Februari":
+        return 2;
+      case "Maret":
+        return 3;
+      case "April":
+        return 4;
+      case "Mei":
+        return 5;
+      case "Juni":
+        return 6;
+      case "Juli":
+        return 7;
+      case "Agustus":
+        return 8;
+      case "September":
+        return 9;
+      case "Oktober":
+        return 10;
+      case "November":
+        return 11;
+      case "Desember":
+        return 12;
+      default:
+        return 1;
+    }
   }
 }
