@@ -165,6 +165,7 @@ class TImeOffController extends BaseController {
     teacherId = await SettingsUtils.getString("teacher_id");
     String type = getTypeEng();
     String documentName = "";
+    late String urlUpload = "";
     if (proofFile != null) {
       documentName = proofFile!.path.split('/').last;
     } else if (resFilePicked != null) {
@@ -175,9 +176,13 @@ class TImeOffController extends BaseController {
       return;
     } else {
       var resUpload = await UploadFileTimeoffApi().request(file: proofFile!);
+      if (resUpload.status) {
+        UrlUpload responseUpload = resUpload.data as UrlUpload;
+        urlUpload = responseUpload.url;
+      }
     }
     var res = await SubmitTimeoffApi()
-        .request(teacherId: teacherId, startDate: unformattedStartDate, endDate: unformattedEndDate, description: type, type: type, document: documentName);
+        .request(teacherId: teacherId, startDate: unformattedStartDate, endDate: unformattedEndDate, description: type, type: type, document: urlUpload);
     Get.snackbar("message", res.message.toString());
     if (res.status) {
       Get.snackbar('Berhasil', 'Pengajuan Cuti Berhasil');

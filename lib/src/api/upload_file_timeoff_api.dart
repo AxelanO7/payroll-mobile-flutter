@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:absent_payroll/src/core/base_api.dart';
@@ -23,7 +24,10 @@ class UploadFileTimeoffApi extends BaseApi {
 
       responseData.statusCode = response.statusCode;
       if (await checkStatus200X(response)) {
+        var responseBody = json.decode(await response.stream.bytesToString());
+        var data = UploadFilePresenceResponse.fromJson(responseBody);
         responseData.status = true;
+        responseData.data = data.data;
         responseData.message = "File berhasil diupload";
       }
     } catch (e) {
