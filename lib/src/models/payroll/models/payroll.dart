@@ -10,7 +10,6 @@ class Payroll {
   late int id;
   @JsonKey(name: 'salary_amount') late int salaryAmount;
   @JsonKey(name: 'teacher_id') late String teacherId;
-  @JsonKey(name: 'jam_kerja') late int jamKerja;
   late int honor;
   late int kehadiran;
   @JsonKey(name: 'wali_allowance') late int waliAllowance;
@@ -20,6 +19,7 @@ class Payroll {
   @JsonKey(name: 'anak_allowance') late int anakAllowance;
   @JsonKey(name: 'piket_allowance') late int piketAllowance;
   @JsonKey(name: 'kom_allowance') late int komAllowance;
+  @JsonKey(name: 'other_allowance') late int otherAllowance;
   late int deductions;
   @JsonKey(name: 'net_salary') late int netSalary;
   @JsonKey(name: 'account_number') late String accountNumber;

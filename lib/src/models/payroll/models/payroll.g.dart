@@ -10,7 +10,6 @@ Payroll _$PayrollFromJson(Map<String, dynamic> json) => Payroll()
   ..id = (json['id'] as num).toInt()
   ..salaryAmount = (json['salary_amount'] as num).toInt()
   ..teacherId = json['teacher_id'] as String
-  ..jamKerja = (json['jam_kerja'] as num).toInt()
   ..honor = (json['honor'] as num).toInt()
   ..kehadiran = (json['kehadiran'] as num).toInt()
   ..waliAllowance = (json['wali_allowance'] as num).toInt()
@@ -20,6 +19,7 @@ Payroll _$PayrollFromJson(Map<String, dynamic> json) => Payroll()
   ..anakAllowance = (json['anak_allowance'] as num).toInt()
   ..piketAllowance = (json['piket_allowance'] as num).toInt()
   ..komAllowance = (json['kom_allowance'] as num).toInt()
+  ..otherAllowance = (json['other_allowance'] as num).toInt()
   ..deductions = (json['deductions'] as num).toInt()
   ..netSalary = (json['net_salary'] as num).toInt()
   ..accountNumber = json['account_number'] as String
@@ -34,7 +34,6 @@ Map<String, dynamic> _$PayrollToJson(Payroll instance) => <String, dynamic>{
       'id': instance.id,
       'salary_amount': instance.salaryAmount,
       'teacher_id': instance.teacherId,
-      'jam_kerja': instance.jamKerja,
       'honor': instance.honor,
       'kehadiran': instance.kehadiran,
       'wali_allowance': instance.waliAllowance,
@@ -44,6 +43,7 @@ Map<String, dynamic> _$PayrollToJson(Payroll instance) => <String, dynamic>{
       'anak_allowance': instance.anakAllowance,
       'piket_allowance': instance.piketAllowance,
       'kom_allowance': instance.komAllowance,
+      'other_allowance': instance.otherAllowance,
       'deductions': instance.deductions,
       'net_salary': instance.netSalary,
       'account_number': instance.accountNumber,

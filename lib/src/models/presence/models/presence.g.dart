@@ -9,7 +9,7 @@ part of 'presence.dart';
 Presence _$PresenceFromJson(Map<String, dynamic> json) => Presence()
   ..id = (json['id'] as num).toInt()
   ..teacherId = json['teacher_id'] as String
-  ..approvedBy = json['approved_by'] as String
+  ..approvedBy = json['approved_by'] as String?
   ..uuid = json['uuid'] as String
   ..clockIn = json['clock_in'] as String
   ..clockOut = json['clock_out'] as String

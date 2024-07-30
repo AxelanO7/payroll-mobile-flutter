@@ -9,7 +9,7 @@ class Presence {
 
   late int id;
   @JsonKey(name: 'teacher_id') late String teacherId;
-  @JsonKey(name: 'approved_by') late String approvedBy;
+  @JsonKey(name: 'approved_by') String? approvedBy;
   late String uuid;
   @JsonKey(name: 'clock_in') late String clockIn;
   @JsonKey(name: 'clock_out') late String clockOut;

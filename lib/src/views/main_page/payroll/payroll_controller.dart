@@ -67,15 +67,12 @@ class PayrollController extends BaseController {
     update();
     if (month != null) {
       payrollList = originalPayrollList;
-      print('payrollList: $payrollList');
-      print('originalPayrollList: $originalPayrollList');
       for (var i = 0; i < payrollList.length; i++) {
         var element = payrollList[i];
         var date = element!.salaryCreated;
         var formatter = DateFormat('yyyy-MM-dd');
         var dateFormatted = formatter.parse(date);
         var monthString = DateFormat('MMMM').format(dateFormatted);
-        // change to indonesian
         if (monthString == 'January') {
           monthString = 'Januari';
         } else if (monthString == 'February') {
