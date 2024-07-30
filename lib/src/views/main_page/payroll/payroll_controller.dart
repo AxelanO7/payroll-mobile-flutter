@@ -65,8 +65,13 @@ class PayrollController extends BaseController {
   getPayrolls({String? month}) async {
     isLoadingPayroll = true;
     update();
+    teacherId = await SettingsUtils.getString("teacher_id");
+    var res = await GetHistoryPayrollApi().request(teacherId: teacherId);
+    if (res.status) {
+      payrollList = res.listData as List<Payroll?>;
+      originalPayrollList = res.listData as List<Payroll?>;
+    }
     if (month != null) {
-      payrollList = originalPayrollList;
       for (var i = 0; i < payrollList.length; i++) {
         var element = payrollList[i];
         var date = element!.salaryCreated;
@@ -102,18 +107,9 @@ class PayrollController extends BaseController {
           payrollList.remove(element);
         }
       }
-      isLoadingPayroll = false;
-      update();
-    } else {
-      teacherId = await SettingsUtils.getString("teacher_id");
-      var res = await GetHistoryPayrollApi().request(teacherId: teacherId);
-      if (res.status) {
-        payrollList = res.listData as List<Payroll?>;
-        originalPayrollList = res.listData as List<Payroll?>;
-        isLoadingPayroll = false;
-        update();
-      }
     }
+    isLoadingPayroll = false;
+    update();
   }
 
   handlePdfDownload() async {
