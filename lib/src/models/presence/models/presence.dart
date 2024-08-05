@@ -17,12 +17,12 @@ class Presence {
   late String device;
   @JsonKey(name: 'latitude_in') late String latitudeIn;
   @JsonKey(name: 'longitude_in') late String longitudeIn;
-  @JsonKey(name: 'latitude_out') late String latitudeOut;
-  @JsonKey(name: 'longitude_out') late String longitudeOut;
+  @JsonKey(name: 'latitude_out') String? latitudeOut;
+  @JsonKey(name: 'longitude_out') String? longitudeOut;
   @JsonKey(name: 'distance_in') late int distanceIn;
   @JsonKey(name: 'distance_out') late int distanceOut;
-  @JsonKey(name: 'photo_in') late String photoIn;
-  @JsonKey(name: 'photo_out') late String photoOut;
+  @JsonKey(name: 'photo_in') String? photoIn;
+  @JsonKey(name: 'photo_out') String? photoOut;
   @JsonKey(name: 'presence_date') late String presenceDate;
   late String status;
   @JsonKey(name: 'created_at') late String createdAt;
