@@ -1,5 +1,4 @@
 import 'package:absent_payroll/src/core/base_import.dart';
-import 'package:marquee/marquee.dart';
 
 import 'history_controller.dart';
 
@@ -29,8 +28,7 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 Expanded(
                   child: Container(
                     // height: 50,
-                    child:
-                    Text (
+                    child: Text(
                       '${widget.item?.presenceDate}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                       textAlign: TextAlign.center,
@@ -47,8 +45,7 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: (widget.item?.clockIn == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    height: 50, child: (widget.item?.clockIn == "") ? Icon(Icons.close) : Icon(Icons.check),
                     // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
@@ -61,9 +58,8 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 50,
-                    child: (widget.item?.clockOut == "") ? Icon(Icons.close) : Icon(Icons.check),
-                  // Marquee(
+                    height: 50, child: (widget.item?.clockOut == "") ? Icon(Icons.close) : Icon(Icons.check),
+                    // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
                     //   accelerationCurve: Curves.easeInOut,
@@ -76,8 +72,25 @@ class _HistoryListItemState extends State<HistoryListItem> {
                 Expanded(
                   child: Container(
                     // height: 50,
-                    child:
-                    Text (
+                    child: Text(
+                      '${widget.item?.statusPresence.toCapitalized()}',
+                      style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                      textAlign: TextAlign.center,
+                    ),
+                    // Marquee(
+                    //   blankSpace: 20,
+                    //   decelerationDuration: const Duration(milliseconds: 500),
+                    //   accelerationCurve: Curves.easeInOut,
+                    //   decelerationCurve: Curves.easeInOut,
+                    //   text: '${widget.item?.statusPresence}',
+                    //   style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                    // ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    // height: 50,
+                    child: Text(
                       '${widget.item?.status.toCapitalized()}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                       textAlign: TextAlign.center,

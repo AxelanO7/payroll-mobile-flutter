@@ -25,6 +25,7 @@ Presence _$PresenceFromJson(Map<String, dynamic> json) => Presence()
   ..photoOut = json['photo_out'] as String?
   ..presenceDate = json['presence_date'] as String
   ..status = json['status'] as String
+  ..statusPresence = json['status_presence'] as String
   ..createdAt = json['created_at'] as String
   ..updatedAt = json['updated_at'] as String;
 
@@ -47,6 +48,7 @@ Map<String, dynamic> _$PresenceToJson(Presence instance) => <String, dynamic>{
       'photo_out': instance.photoOut,
       'presence_date': instance.presenceDate,
       'status': instance.status,
+      'status_presence': instance.statusPresence,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
     };

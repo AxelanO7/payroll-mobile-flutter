@@ -183,6 +183,13 @@ class _HistoryViewState extends State<HistoryView> {
               ),
               Expanded(
                 child: Text(
+                  "Terlambat",
+                  textAlign: TextAlign.center,
+                  style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
+                ),
+              ),
+              Expanded(
+                child: Text(
                   'Status',
                   textAlign: TextAlign.center,
                   style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),

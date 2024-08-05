@@ -25,6 +25,7 @@ class Presence {
   @JsonKey(name: 'photo_out') String? photoOut;
   @JsonKey(name: 'presence_date') late String presenceDate;
   late String status;
+  @JsonKey(name: 'status_presence') late String statusPresence;
   @JsonKey(name: 'created_at') late String createdAt;
   @JsonKey(name: 'updated_at') late String updatedAt;
 
