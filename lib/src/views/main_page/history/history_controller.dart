@@ -84,4 +84,15 @@ class HistoryController extends BaseController {
     getHistoryAbsents(month: selectedMonth);
     update();
   }
+
+  getLateStatusPresence(String val){
+    switch (val) {
+      case "tidak-telat":
+        return "Tidak";
+      case "telat":
+        return "Terlambat";
+      default:
+        return "Tidak";
+    }
+  }
 }

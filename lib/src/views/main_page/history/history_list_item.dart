@@ -73,7 +73,7 @@ class _HistoryListItemState extends State<HistoryListItem> {
                   child: Container(
                     // height: 50,
                     child: Text(
-                      '${widget.item?.statusPresence.toCapitalized()}',
+                      '${widget.controller.getLateStatusPresence(widget.item?.statusPresence ?? "")}',
                       style: TypographyStyle.body4SemiBold.copyWith(color: ColorStyle().grayscaleRange[800]),
                       textAlign: TextAlign.center,
                     ),
