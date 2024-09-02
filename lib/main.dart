@@ -13,8 +13,6 @@ void main() async {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.fadeIn,
       theme: await ThemeStyle.currentThemeData,
-
-      
       home: const StartupView(),
       getPages: AppPages.routes,
     ),
