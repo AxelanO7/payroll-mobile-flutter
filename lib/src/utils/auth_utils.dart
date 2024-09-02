@@ -2,9 +2,9 @@ import 'package:absent_payroll/src/api/index.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class AuthUtils {
-  static final String _skLogin = 'is_login';
-  static final String _skMobileToken = 'token';
-  static final String _skFCMToken = 'fcm_token';
+  static const String _skLogin = 'is_login';
+  static const String _skMobileToken = 'token';
+  static const String _skFCMToken = 'fcm_token';
 
   static Future<ResultApi> doLogin(String userIdentifier, String password) async {
     var result = await LoginApi().request(email: userIdentifier, password: password);

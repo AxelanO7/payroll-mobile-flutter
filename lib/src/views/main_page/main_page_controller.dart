@@ -7,20 +7,8 @@ class MainPageController extends BaseController {
 
   bool canPop = true;
 
-  @override
-  onInit() {
-    super.onInit();
-  }
 
-  @override
-  onReady() async {
-    super.onReady();
-  }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   onGoBack() {
     Get.back();

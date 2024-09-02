@@ -21,7 +21,7 @@ class _PayrollListItemState extends State<PayrollListItem> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: Get.width,
             child: Row(
               children: [

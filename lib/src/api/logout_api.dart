@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class LogoutApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/logout';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/logout';
 
   Future<ResultApi> request() async {
     if (CoreConfig.getDebuggableConfig("is_debug_mode")) LogUtils.log(requestPayload);

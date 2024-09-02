@@ -55,10 +55,6 @@ class AttendanceController extends BaseController {
     super.onReady();
   }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   Widget pageItemBuilder(context, position) {
     switch (position) {

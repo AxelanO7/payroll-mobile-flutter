@@ -58,8 +58,8 @@ class _PayrollViewState extends State<PayrollView> {
                                 ),
                               )
                             else if (controller.isLoadingPayroll)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 16),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 16),
                                 child: Center(
                                   child: SizedBox(
                                     height: 32,
@@ -117,7 +117,7 @@ class _PayrollViewState extends State<PayrollView> {
           ),
         ),
         // make month with check box
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -159,7 +159,7 @@ class _PayrollViewState extends State<PayrollView> {
             ],
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
           child: Row(

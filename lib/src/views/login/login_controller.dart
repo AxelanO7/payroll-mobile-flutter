@@ -7,20 +7,8 @@ class LoginController extends BaseController {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  @override
-  onInit() {
-    super.onInit();
-  }
 
-  @override
-  onReady() async {
-    super.onReady();
-  }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   onGoBack() {
     Get.back();

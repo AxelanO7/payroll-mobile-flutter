@@ -377,7 +377,7 @@ class _HomeViewState extends State<HomeView> with AutomaticKeepAliveClientMixin<
                                           ),
                                         ),
                                       ),
-                                      Expanded(child: SizedBox.shrink()),
+                                      const Expanded(child: SizedBox.shrink()),
                                     ],
                                   ),
                                 ),

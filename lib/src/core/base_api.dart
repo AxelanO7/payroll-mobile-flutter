@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 export 'package:http/http.dart';
 
 class BaseApi {
-  ResultApi responseData = new ResultApi()..status = false;
+  ResultApi responseData = ResultApi()..status = false;
   String url = '';
   String msx = '';
   var requestPayload;
@@ -67,12 +67,12 @@ class BaseApi {
             if (responseBody["data"]["errors"] is Map<String, dynamic>) {
               var err = responseBody["data"]["errors"] as Map<String, dynamic>;
               Map<String, List<dynamic>> errMsg = {};
-              if (err.length > 0) {
+              if (err.isNotEmpty) {
                 err.forEach((key, value) {
                   errMsg[key] = [];
                   if (err[key] is List<dynamic>) {
                     List<dynamic> msgs = err[key];
-                    if (msgs.length > 0) {
+                    if (msgs.isNotEmpty) {
                       errMsg[key]?.add(msgs.first?.toString() ?? '');
                     }
                   }
@@ -101,7 +101,7 @@ class BaseApi {
         if (Get.find<ConstantsService>().isLoggedOut || !isLogged) {
           return;
         }
-        Get.find<ConstantsService>()..isLoggedOut = true;
+        Get.find<ConstantsService>().isLoggedOut = true;
         // TinySnackBar.material(
         //   'Sesi kamu telah berakhir. Silahkan login kembali',
         //   type: TinySnackBarType.warning,
@@ -112,7 +112,7 @@ class BaseApi {
         // await AuthUtils.removeSession();
         // MiscHelper.doLogout();
         await Get.offAllNamed(AppRoutes.loginPage);
-        Get.find<ConstantsService>()..isLoggedOut = false;
+        Get.find<ConstantsService>().isLoggedOut = false;
       }
     } else if (response.statusCode >= 500) {
       Get.snackbar(

@@ -6,7 +6,8 @@ import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:http/http.dart' as http;
 
 class UploadFilePresenceApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/upload/presence/teacher';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/upload/presence/teacher';
 
   Future<ResultApi> request({required File file}) async {
     try {

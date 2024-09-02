@@ -58,7 +58,7 @@ class _HistoryViewState extends State<HistoryView> {
                                 ),
                               )
                             else if (controller.isLoadingHistory)
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 24.0),
                                 child: SizedBox(
                                   height: 32,
@@ -115,7 +115,7 @@ class _HistoryViewState extends State<HistoryView> {
           ),
         ),
         // make month with check box
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -155,7 +155,7 @@ class _HistoryViewState extends State<HistoryView> {
             ],
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
           child: Row(

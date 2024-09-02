@@ -47,10 +47,6 @@ class HistoryController extends BaseController {
     super.onReady();
   }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   getStatusText(String status) {
     switch (status) {

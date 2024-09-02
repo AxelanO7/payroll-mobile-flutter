@@ -6,7 +6,8 @@ import 'package:absent_payroll/src/core/base_import.dart';
 import 'package:http/http.dart' as http;
 
 class UploadFileTimeoffApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/upload/timeoff';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/upload/timeoff';
 
   Future<ResultApi> request({required File file}) async {
     try {

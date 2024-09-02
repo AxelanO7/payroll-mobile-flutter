@@ -1,5 +1,4 @@
 import 'package:absent_payroll/src/core/base_import.dart';
-import 'package:absent_payroll/src/styles/cores/color_style.dart';
 
 class CustomButton extends StatefulWidget {
   final GestureTapCallback onPressed;

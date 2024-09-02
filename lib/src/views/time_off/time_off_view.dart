@@ -56,7 +56,7 @@ class TimeOffView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
-                        SizedBox(height: 24),
+                        const SizedBox(height: 24),
                         // start date
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +65,7 @@ class TimeOffView extends StatelessWidget {
                               "Tanggal Mulai",
                               style: TypographyStyle.body2Medium,
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             TextField(
                               controller: controller.startDateController,
                               readOnly: true,
@@ -90,7 +90,7 @@ class TimeOffView extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // end date
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +99,7 @@ class TimeOffView extends StatelessWidget {
                               "Tanggal Selesai",
                               style: TypographyStyle.body2Medium,
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             TextField(
                               controller: controller.endDateController,
                               readOnly: true,
@@ -124,7 +124,7 @@ class TimeOffView extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // proof
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +133,7 @@ class TimeOffView extends StatelessWidget {
                               "Surat Keterangan",
                               style: TypographyStyle.body2Medium,
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Row(
                               children: [
                                 Expanded(
@@ -148,11 +148,11 @@ class TimeOffView extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 8),
-                                ElevatedButton(onPressed: controller.tapPickFile, child: Text('Pilih File'))
+                                const SizedBox(width: 8),
+                                ElevatedButton(onPressed: controller.tapPickFile, child: const Text('Pilih File'))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                           ],
                         ),
                         // type
@@ -163,7 +163,7 @@ class TimeOffView extends StatelessWidget {
                               "Jenis Cuti",
                               style: TypographyStyle.body2Medium,
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             DropdownButton<String>(
                               isExpanded: true,
                               value: controller.typeTimeOff,
@@ -180,16 +180,16 @@ class TimeOffView extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 24),
+                        const SizedBox(height: 24),
                         CustomButton(
                           onPressed: controller.handleSubmit,
                           width: Get.width - 40,
                           height: 48,
+                          color: ColorStyle.blackColor,
                           child: Text(
                             'Ajukan Cuti',
                             style: TypographyStyle.body2Medium.copyWith(color: ColorStyle.whiteColor),
                           ),
-                          color: ColorStyle.blackColor,
                         ),
                       ],
                     ),

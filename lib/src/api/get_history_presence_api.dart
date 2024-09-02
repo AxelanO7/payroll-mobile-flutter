@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class GetHistoryPresenceApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/history-presences';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/history-presences';
 
   Future<ResultApi> request({required String teacherId}) async {
     url += '/$teacherId';

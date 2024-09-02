@@ -27,10 +27,6 @@ class HomeController extends BaseController {
     super.onReady();
   }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   resetAccount() {
     SettingsUtils.remove("name_user");

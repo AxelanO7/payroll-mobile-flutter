@@ -9,10 +9,6 @@ class StartupController extends BaseController {
     return !(nowDate.isBefore(expBuild));
   }
 
-  @override
-  void onInit() async {
-    super.onInit();
-  }
 
   @override
   void onReady() async {

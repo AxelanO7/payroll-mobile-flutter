@@ -21,7 +21,7 @@ class _HistoryListItemState extends State<HistoryListItem> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: Get.width,
             child: Row(
               children: [
@@ -44,8 +44,8 @@ class _HistoryListItemState extends State<HistoryListItem> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    height: 50, child: (widget.item?.clockIn == "") ? Icon(Icons.close) : Icon(Icons.check),
+                  child: SizedBox(
+                    height: 50, child: (widget.item?.clockIn == "") ? const Icon(Icons.close) : const Icon(Icons.check),
                     // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),
@@ -57,8 +57,8 @@ class _HistoryListItemState extends State<HistoryListItem> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    height: 50, child: (widget.item?.clockOut == "") ? Icon(Icons.close) : Icon(Icons.check),
+                  child: SizedBox(
+                    height: 50, child: (widget.item?.clockOut == "") ? const Icon(Icons.close) : const Icon(Icons.check),
                     // Marquee(
                     //   blankSpace: 20,
                     //   decelerationDuration: const Duration(milliseconds: 500),

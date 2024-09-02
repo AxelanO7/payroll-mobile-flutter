@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class GetStatusPresenceApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/presence/check';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/presence/check';
 
   Future<ResultApi> request({required String employeeId}) async {
     url += '/$employeeId';

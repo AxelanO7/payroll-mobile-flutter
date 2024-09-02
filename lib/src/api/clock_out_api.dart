@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class ClockOutApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/presence/out';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/presence/out';
 
   Future<ResultApi> request({
     required String teacherId,

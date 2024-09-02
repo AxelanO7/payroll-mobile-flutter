@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class LoginApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/login';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/login';
 
   Future<ResultApi> request({required String email, required String password}) async {
     requestPayload = {

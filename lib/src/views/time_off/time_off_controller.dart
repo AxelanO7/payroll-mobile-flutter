@@ -27,20 +27,8 @@ class TImeOffController extends BaseController {
 
   String teacherId = '';
 
-  @override
-  onInit() {
-    super.onInit();
-  }
 
-  @override
-  onReady() async {
-    super.onReady();
-  }
 
-  @override
-  onClose() async {
-    super.onClose();
-  }
 
   onGoBack() {
     Get.back();
@@ -56,15 +44,15 @@ class TImeOffController extends BaseController {
               takePictureProof();
               Get.back();
             },
-            child: Text('Ambil Foto'),
+            child: const Text('Ambil Foto'),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           CustomButton(
             onPressed: () {
               pickFile();
               Get.back();
             },
-            child: Text('Pilih File'),
+            child: const Text('Pilih File'),
           ),
         ],
       ),

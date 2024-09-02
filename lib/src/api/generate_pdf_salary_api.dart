@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class GeneratePdfSalaryApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/recap-salary';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/recap-salary';
 
   Future<ResultApi> request({required String employeeId, required int month}) async {
     url += '/$employeeId/download?m=$month';

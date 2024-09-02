@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class ClockInApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/presence/in';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/presence/in';
 
   Future<ResultApi> request({
     required String teacherId,

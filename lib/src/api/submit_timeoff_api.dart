@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class SubmitTimeoffApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/timeoff';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/timeoff';
 
   Future<ResultApi> request({
     required String teacherId,

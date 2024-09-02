@@ -4,7 +4,8 @@ import 'package:absent_payroll/src/core/base_api.dart';
 import 'package:absent_payroll/src/core/base_import.dart';
 
 class GetListTimeoffApi extends BaseApi {
-  String url = CoreConfig.getApiUrl() + '/timeoff/all';
+  @override
+  String url = '${CoreConfig.getApiUrl()}/timeoff/all';
 
   Future<ResultApi> request({required String employeeId}) async {
     url += '/$employeeId';

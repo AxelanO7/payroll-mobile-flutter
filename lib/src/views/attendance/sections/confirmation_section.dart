@@ -83,7 +83,7 @@ class ConfirmationSection extends StatelessWidget {
                                     'Longitude Attendance  : ${controller.locationData!.longitude}',
                                     style: TypographyStyle.body2SemiBold.copyWith(color: ColorStyle.customGreyColor),
                                   ),
-                                  SizedBox(height: 12),
+                                  const SizedBox(height: 12),
                                   DropdownButtonFormField<String>(
                                     decoration: InputDecoration(
                                       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
